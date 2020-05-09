@@ -17,18 +17,26 @@ struct ShuffleResultView: View {
     
     var body: some View {
         VStack() {
-            Text("シャッフル結果")
+            if isCompletShuffle == false {
+                Text("シャッフル中...")
+            }
+            
         }
         .navigationBarTitle("シャッフル結果", displayMode: .inline)
-        .onAppear(perform: { self.doShuffle(members: self.member, groupCount: self.groupNum) })
+        .onAppear(perform: { self.doShuffle(members: self.member, groupCount: self.groupNum - 1) })
     }
     
     private func doShuffle(members: [Member], groupCount: Int){
         self.isCompletShuffle = false
+        
+        var groupId:Int = 1;
         for member in members {
-            for groupNum in 1...self.groupNum {
-                self.shuffledGroup.append(Member(name: member.name, groupId: groupNum))
+            self.shuffledGroup.append(Member(name: member.name, groupId: groupId))
+            if groupId > groupCount {
+                groupId = 1
+                continue
             }
+            groupId = groupId + 1
         }
         dump(self.shuffledGroup)
         self.isCompletShuffle = true
