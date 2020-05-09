@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B43229A24669499000124F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229924669499000124F4 /* AppDelegate.swift */; };
 		1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229B24669499000124F4 /* SceneDelegate.swift */; };
-		1B43229E24669499000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229D24669499000124F4 /* ContentView.swift */; };
 		1B4322A024669499000124F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B43229F24669499000124F4 /* Assets.xcassets */; };
 		1B4322A324669499000124F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A224669499000124F4 /* Preview Assets.xcassets */; };
 		1B4322A624669499000124F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A424669499000124F4 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,8 @@
 		1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; };
 		1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322D62466AE8A000124F4 /* ContentView.swift */; };
+		1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DA2466AEC3000124F4 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,6 @@
 		1B43229624669499000124F4 /* MakaseteChoice_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakaseteChoice_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43229924669499000124F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B43229B24669499000124F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B43229D24669499000124F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B43229F24669499000124F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B4322A224669499000124F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B4322A524669499000124F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +70,8 @@
 		1B4322BD24669499000124F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B4322CB2466AB7F000124F4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		1B4322CF2466AB8D000124F4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		1B4322D62466AE8A000124F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1B4322DA2466AEC3000124F4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +125,12 @@
 		1B43229824669499000124F4 /* MakaseteChoice_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1B4322D22466AE7E000124F4 /* AppState */,
+				1B4322D32466AE8A000124F4 /* UI */,
+				1B4322D92466AE99000124F4 /* Interactor */,
+				1B4322D82466AE93000124F4 /* Repository */,
 				1B43229924669499000124F4 /* AppDelegate.swift */,
 				1B43229B24669499000124F4 /* SceneDelegate.swift */,
-				1B43229D24669499000124F4 /* ContentView.swift */,
 				1B43229F24669499000124F4 /* Assets.xcassets */,
 				1B4322A424669499000124F4 /* LaunchScreen.storyboard */,
 				1B4322A724669499000124F4 /* Info.plist */,
@@ -167,6 +172,52 @@
 				1B4322CB2466AB7F000124F4 /* Realm.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B4322D22466AE7E000124F4 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322DA2466AEC3000124F4 /* AppState.swift */,
+			);
+			path = AppState;
+			sourceTree = "<group>";
+		};
+		1B4322D32466AE8A000124F4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322D42466AE8A000124F4 /* Component */,
+				1B4322D52466AE8A000124F4 /* Sceen */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1B4322D42466AE8A000124F4 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		1B4322D52466AE8A000124F4 /* Sceen */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322D62466AE8A000124F4 /* ContentView.swift */,
+			);
+			path = Sceen;
+			sourceTree = "<group>";
+		};
+		1B4322D82466AE93000124F4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1B4322D92466AE99000124F4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +376,8 @@
 			files = (
 				1B43229A24669499000124F4 /* AppDelegate.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
-				1B43229E24669499000124F4 /* ContentView.swift in Sources */,
+				1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */,
+				1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
