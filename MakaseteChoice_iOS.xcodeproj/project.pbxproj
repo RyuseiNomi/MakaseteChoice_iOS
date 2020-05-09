@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DC2466AF8F000124F4 /* MemberInputView.swift */; };
 		1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */; };
 		1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */; };
+		1B4322E42466C45B000124F4 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322E32466C45B000124F4 /* QGrid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4322E42466C45B000124F4 /* QGrid in Frameworks */,
 				1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */,
 				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
 			);
@@ -247,6 +249,9 @@
 			dependencies = (
 			);
 			name = MakaseteChoice_iOS;
+			packageProductDependencies = (
+				1B4322E32466C45B000124F4 /* QGrid */,
+			);
 			productName = MakaseteChoice_iOS;
 			productReference = 1B43229624669499000124F4 /* MakaseteChoice_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -319,6 +324,9 @@
 				Base,
 			);
 			mainGroup = 1B43228D24669499000124F4;
+			packageReferences = (
+				1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
 			productRefGroup = 1B43229724669499000124F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -723,6 +731,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1B4322E32466C45B000124F4 /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B43228E24669499000124F4 /* Project object */;
 }
