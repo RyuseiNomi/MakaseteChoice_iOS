@@ -16,6 +16,9 @@ struct ShuffleOptionView: View {
     var body: some View {
         VStack() {
             Text("グループ数")
+                .font(Font.custom("Helvetica-Light", size: 28))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
             HStack() {
                 Button(action: {
                     self.groupNum = self.groupNum - 1
@@ -31,6 +34,7 @@ struct ShuffleOptionView: View {
                     Text("＋")
                 }
             }
+            Spacer()
             NavigationLink(destination: ShuffleResultView(member: self.member)) {
                 DecisionButton()
             }
