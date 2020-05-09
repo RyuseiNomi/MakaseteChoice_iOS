@@ -15,6 +15,10 @@
 		1B4322A624669499000124F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A424669499000124F4 /* LaunchScreen.storyboard */; };
 		1B4322B124669499000124F4 /* MakaseteChoice_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322B024669499000124F4 /* MakaseteChoice_iOSTests.swift */; };
 		1B4322BC24669499000124F4 /* MakaseteChoice_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322BB24669499000124F4 /* MakaseteChoice_iOSUITests.swift */; };
+		1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; };
+		1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; };
+		1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1B4322CE2466AB7F000124F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */,
+				1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1B43229624669499000124F4 /* MakaseteChoice_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakaseteChoice_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43229924669499000124F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +68,8 @@
 		1B4322B724669499000124F4 /* MakaseteChoice_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakaseteChoice_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4322BB24669499000124F4 /* MakaseteChoice_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakaseteChoice_iOSUITests.swift; sourceTree = "<group>"; };
 		1B4322BD24669499000124F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B4322CB2466AB7F000124F4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		1B4322CF2466AB8D000124F4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
+				1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +106,7 @@
 				1B4322AF24669499000124F4 /* MakaseteChoice_iOSTests */,
 				1B4322BA24669499000124F4 /* MakaseteChoice_iOSUITests */,
 				1B43229724669499000124F4 /* Products */,
+				1B4322CA2466AB7F000124F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +160,15 @@
 			path = MakaseteChoice_iOSUITests;
 			sourceTree = "<group>";
 		};
+		1B4322CA2466AB7F000124F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322CF2466AB8D000124F4 /* RealmSwift.framework */,
+				1B4322CB2466AB7F000124F4 /* Realm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +179,8 @@
 				1B43229224669499000124F4 /* Sources */,
 				1B43229324669499000124F4 /* Frameworks */,
 				1B43229424669499000124F4 /* Resources */,
+				1B4322C92466AAA3000124F4 /* ShellScript */,
+				1B4322CE2466AB7F000124F4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +296,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B4322C92466AAA3000124F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B43229224669499000124F4 /* Sources */ = {
@@ -438,6 +494,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MakaseteChoice_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,6 +518,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MakaseteChoice_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
