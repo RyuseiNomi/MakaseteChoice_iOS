@@ -35,7 +35,7 @@ struct ShuffleOptionView: View {
                 }
             }
             Spacer()
-            NavigationLink(destination: ShuffleResultView(member: self.member)) {
+            NavigationLink(destination: ShuffleResultView(member: self.member, groupNum: self.groupNum)) {
                 DecisionButton()
             }
         }.navigationBarTitle("シャッフルオプション設定", displayMode: .inline)

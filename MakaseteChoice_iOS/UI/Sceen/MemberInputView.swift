@@ -12,6 +12,7 @@ import QGrid
 struct Member: Identifiable {
     var id = UUID()
     var name:String
+    var groupId:Int
 }
 
 struct MemberCell: View {
@@ -62,6 +63,6 @@ struct MemberInputView: View {
     
     /// Add member to list
     private func setMember(name: String) {
-        self.member.append(Member(name: name))
+        self.member.append(Member(name: name, groupId: 0))
     }
 }
