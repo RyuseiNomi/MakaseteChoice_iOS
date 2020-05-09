@@ -6,4 +6,14 @@
 //  Copyright © 2020 Ryusei Nomi. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+struct ShuffleResultView: View {
+    
+    var member:[Member] = []
+    var body: some View {
+        VStack() {
+            Text("シャッフル結果")
+        }
+    }
+}

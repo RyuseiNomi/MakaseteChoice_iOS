@@ -38,6 +38,9 @@ struct MemberInputView: View {
     var body: some View {
         VStack() {
             TextField("名前を入力", text: $name, onCommit: { self.setMember(name: self.name) })
+            NavigationLink(destination: ShuffleOptionView(member: self.member)) {
+                DecisionButton()
+            }
             if self.member.isEmpty {
                 Text("メンバーを追加")
             }
