@@ -54,7 +54,7 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
-        }
+        }.navigationBarTitle("メンバーの入力", displayMode: .inline)
     }
     
     /// Add member to list

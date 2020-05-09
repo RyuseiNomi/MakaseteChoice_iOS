@@ -14,6 +14,6 @@ struct ShuffleResultView: View {
     var body: some View {
         VStack() {
             Text("シャッフル結果")
-        }
+        }.navigationBarTitle("シャッフル結果", displayMode: .inline)
     }
 }

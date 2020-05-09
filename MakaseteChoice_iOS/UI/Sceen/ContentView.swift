@@ -14,7 +14,7 @@ struct ContentView: View {
             NavigationLink(destination: MemberInputView()) {
                 Text("新規メンバーを作成してChoiceする")
             }
-        }
+        }.navigationBarTitle("ホーム", displayMode: .inline)
     }
 }
 
