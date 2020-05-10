@@ -10,16 +10,16 @@ import SwiftUI
 
 struct ShuffleOptionView: View {
     
-    var member:[Member] = []
     @State private(set) var groupNum:Int = 1
     @State private(set) var isUnderZero:Bool = false
     @State private(set) var isOverMemberNum:Bool = false
+    @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack() {
             HStack() {
                 Text("入力されたメンバー")
-                Text(String(member.count))
+                Text(String(self.appState.memberObject.members.count))
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人")
@@ -50,7 +50,7 @@ struct ShuffleOptionView: View {
                             .font(Font.custom("Helvetica-Light", size: 48))
                             .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing:20))
                         Button(action: {
-                            if self.groupNum > self.member.count-1 {
+                            if self.groupNum > self.appState.memberObject.members.count-1 {
                                 self.isOverMemberNum = true
                                 return
                             }
@@ -66,7 +66,7 @@ struct ShuffleOptionView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing:20))
             Spacer()
-            NavigationLink(destination: ShuffleResultView(members: self.member, groupNum: self.groupNum)) {
+            NavigationLink(destination: ShuffleResultView(members: self.appState.memberObject.members, groupNum: self.groupNum)) {
                 DecisionButton()
             }
         }

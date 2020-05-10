@@ -6,4 +6,13 @@
 //  Copyright © 2020 Ryusei Nomi. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+class AppState: ObservableObject {
+    
+    struct MemberObject {
+        var members:[Member] = []
+    }
+    
+    @Published public var memberObject = MemberObject()
+}

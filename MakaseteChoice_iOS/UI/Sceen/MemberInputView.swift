@@ -46,8 +46,8 @@ struct MemberCell: View {
 
 struct MemberInputView: View {
     @State private(set) var name = ""
-    @State private(set) var member:[Member] = []
     @State private var countLimit:Int = 10
+    @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack() {
@@ -59,10 +59,10 @@ struct MemberInputView: View {
                 Text("人まで")
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
-            if self.member.isEmpty {
+            if self.appState.memberObject.members.isEmpty {
                 Text("メンバーが入力されていません。")
             }
-            QGrid(self.member,
+            QGrid(self.appState.memberObject.members,
                   columns: 2,
                   vSpacing: 15,
                   hSpacing: 5,
@@ -83,7 +83,7 @@ struct MemberInputView: View {
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            NavigationLink(destination: ShuffleOptionView(member: self.member)) {
+            NavigationLink(destination: ShuffleOptionView()) {
                 DecisionButton()
             }
         }
@@ -93,7 +93,7 @@ struct MemberInputView: View {
     
     /// Add member to list
     private func setMember(name: String) {
-        self.member.append(Member(name: name, groupId: 0))
+        self.appState.memberObject.members.append(Member(name: name, groupId: 0))
     }
     
     public func deleteMember(name: String) {
