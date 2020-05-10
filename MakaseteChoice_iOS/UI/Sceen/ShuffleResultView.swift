@@ -13,29 +13,29 @@ struct ResultMemberCell: View {
     var member: Member
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(self.member.name)
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.title)
+        ZStack() {
+            HStack() {
+                Image("Member")
+                Text(member.name)
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 16))
+                Spacer()
+                VStack() {
+                    Text("グループ")
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .font(Font.custom("Helvetica-Light", size: 12))
+                    Text(String(member.groupId))
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .font(Font.custom("Helvetica", size: 20))
+                        .bold()
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:5))
             }
-            Spacer()
-            VStack {
-                Text("グループ")
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.system(size: 14))
-                Text(String(self.member.groupId))
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.system(size: 48))
-            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
         }
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        .background(Color(red: 154/255, green: 205/255, blue: 50/255))
         .cornerRadius(10)
-        //.shadow(color: .gray, radius: 1, x: 0, y: 5) //lightblue
+        .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
@@ -61,12 +61,13 @@ struct ShuffleResultView: View {
             ) { member in
                 ResultMemberCell(member: member)
             }
-            NavigationLink(destination: MemberInputView()) {
-                RetryButton()
-            }
+//            NavigationLink(destination: MemberInputView()) {
+//                RetryButton()
+//            }
         }
-        .navigationBarTitle("シャッフル結果", displayMode: .inline)
         .onAppear(perform: { self.doShuffle() })
+        .navigationBarTitle("シャッフル結果", displayMode: .inline)
+        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
     
     private func doShuffle(){
