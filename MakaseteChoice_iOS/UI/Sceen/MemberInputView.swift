@@ -22,7 +22,10 @@ struct MemberCell: View {
     var body: some View {
         ZStack() {
             HStack() {
+                Image("Member")
                 Text(member.name)
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 16))
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
@@ -35,16 +38,24 @@ struct MemberCell: View {
 struct MemberInputView: View {
     @State private(set) var name = ""
     @State private(set) var member:[Member] = []
+    @State private var countLimit:Int = 10
     
     var body: some View {
         VStack() {
-            Spacer()
+            HStack() {
+                Text("残り ")
+                Text(String(self.countLimit))
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 30))
+                Text("人まで")
+            }
+            .padding()
             if self.member.isEmpty {
                 Text("メンバーが入力されていません。")
             }
             QGrid(self.member,
                   columns: 1,
-                  vSpacing: 25,
+                  vSpacing: 15,
                   hSpacing: 0,
                   vPadding: 10,
                   hPadding: 20,
@@ -53,7 +64,12 @@ struct MemberInputView: View {
                 MemberCell(member: member)
             }
             TextField("名前を入力", text: $name, onCommit: {
+                if self.countLimit == 0 {
+                    //TODO returnを押したタイミングでalertを表示
+                    return
+                }
                 self.setMember(name: self.name)
+                self.countLimit = self.countLimit - 1
                 self.name = ""
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
