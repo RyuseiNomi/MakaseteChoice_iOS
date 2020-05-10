@@ -14,7 +14,7 @@ struct CredentialMenuButton: View {
         ZStack() {
             NavigationLink(destination: CredentialView()) {
                 HStack() {
-                    //Image(self.rowContent.IconName)
+                    Image("Phone")
                     Text("このアプリについて")
                         .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                         .font(Font.custom("Helvetica-Light", size: 24))
