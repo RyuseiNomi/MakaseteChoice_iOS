@@ -39,7 +39,6 @@ struct MemberInputView: View {
     var body: some View {
         VStack() {
             Spacer()
-            TextField("名前を入力", text: $name, onCommit: { self.setMember(name: self.name) })
             if self.member.isEmpty {
                 Text("メンバーが入力されていません。")
             }
@@ -53,12 +52,18 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
+            TextField("名前を入力", text: $name, onCommit: {
+                self.setMember(name: self.name)
+                self.name = ""
+            })
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             NavigationLink(destination: ShuffleOptionView(member: self.member)) {
                 DecisionButton()
             }
         }
         .navigationBarTitle("メンバーの入力", displayMode: .inline)
-        .padding()
+        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
     
     /// Add member to list
