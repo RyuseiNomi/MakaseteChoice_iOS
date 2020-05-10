@@ -7,6 +7,18 @@
 //
 
 import SwiftUI
+import QGrid
+
+struct ResultMemberCell: View {
+    var member: Member
+    
+    var body: some View {
+        HStack() {
+            Text(member.name)
+            Text(String(member.groupId))
+        }
+    }
+}
 
 struct ShuffleResultView: View {
     
@@ -20,7 +32,16 @@ struct ShuffleResultView: View {
             if isCompletShuffle == false {
                 Text("シャッフル中...")
             }
-            
+            QGrid(self.sortedMembers,
+                  columns: 1,
+                  vSpacing: 25,
+                  hSpacing: 0,
+                  vPadding: 10,
+                  hPadding: 20,
+                  isScrollable: true
+            ) { member in
+                ResultMemberCell(member: member)
+            }
         }
         .navigationBarTitle("シャッフル結果", displayMode: .inline)
         .onAppear(perform: { self.doShuffle() })
