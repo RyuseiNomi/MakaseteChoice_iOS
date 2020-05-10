@@ -13,10 +13,29 @@ struct ResultMemberCell: View {
     var member: Member
     
     var body: some View {
-        HStack() {
-            Text(member.name)
-            Text(String(member.groupId))
+        HStack {
+            VStack(alignment: .leading) {
+                Text(self.member.name)
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.title)
+            }
+            Spacer()
+            VStack {
+                Text("グループ")
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 14))
+                Text(String(self.member.groupId))
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 48))
+            }
         }
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .background(Color(red: 154/255, green: 205/255, blue: 50/255))
+        .cornerRadius(10)
+        .shadow(color: .gray, radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
@@ -67,7 +86,6 @@ struct ShuffleResultView: View {
         
         // GroupIDでメンバーをSortする
         self.sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
-        dump(self.sortedMembers)
         self.isCompletShuffle = true
     }
 }
