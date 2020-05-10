@@ -28,6 +28,8 @@
 		1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E72467EBF0000124F4 /* RetryButton.swift */; };
 		1B4322EA2467F2DF000124F4 /* CreateGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */; };
 		1B4322EC2468060B000124F4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322EB2468060B000124F4 /* MenuView.swift */; };
+		1B4322EE24680747000124F4 /* CredentialMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322ED24680747000124F4 /* CredentialMenuButton.swift */; };
+		1B4322F024680766000124F4 /* CredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322EF24680766000124F4 /* CredentialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		1B4322E72467EBF0000124F4 /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
 		1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupButton.swift; sourceTree = "<group>"; };
 		1B4322EB2468060B000124F4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		1B4322ED24680747000124F4 /* CredentialMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialMenuButton.swift; sourceTree = "<group>"; };
+		1B4322EF24680766000124F4 /* CredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				1B4322E52466DAEB000124F4 /* DecisionButton.swift */,
 				1B4322E72467EBF0000124F4 /* RetryButton.swift */,
 				1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */,
+				1B4322ED24680747000124F4 /* CredentialMenuButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				1B4322DC2466AF8F000124F4 /* MemberInputView.swift */,
 				1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */,
 				1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */,
+				1B4322EF24680766000124F4 /* CredentialView.swift */,
 			);
 			path = Sceen;
 			sourceTree = "<group>";
@@ -406,9 +412,11 @@
 			files = (
 				1B43229A24669499000124F4 /* AppDelegate.swift in Sources */,
 				1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */,
+				1B4322F024680766000124F4 /* CredentialView.swift in Sources */,
 				1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */,
 				1B4322EA2467F2DF000124F4 /* CreateGroupButton.swift in Sources */,
 				1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */,
+				1B4322EE24680747000124F4 /* CredentialMenuButton.swift in Sources */,
 				1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
 				1B4322EC2468060B000124F4 /* MenuView.swift in Sources */,

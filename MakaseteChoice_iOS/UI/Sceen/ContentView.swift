@@ -10,7 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MenuView()
+        NavigationView {
+            VStack() {
+                MenuView()
+                CredentialMenuButton()
+            }
+        }
     }
 }
 

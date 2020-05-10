@@ -11,7 +11,6 @@ import SwiftUI
 struct MenuView: View {
     
     var body: some View {
-        NavigationView {
             VStack() {
                 NavigationLink(destination: MemberInputView()) {
                     CreateGroupButton()
@@ -22,6 +21,5 @@ struct MenuView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarTitle("ホーム", displayMode: .inline)
-        }
     }
 }
