@@ -15,4 +15,12 @@ class AppState: ObservableObject {
     }
     
     @Published public var memberObject = MemberObject()
+    
+    public func addMember(member: Member) {
+        self.memberObject.members.append(member)
+    }
+    
+    public func deleteMember(member: Member) {
+        // TODO 配列から要素を検索してindexで削除
+    }
 }

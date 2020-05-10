@@ -77,7 +77,7 @@ struct MemberInputView: View {
                     //TODO returnを押したタイミングでalertを表示
                     return
                 }
-                self.setMember(name: self.name)
+                self.appState.addMember(member: Member(name: self.name, groupId: 0))
                 self.countLimit = self.countLimit - 1
                 self.name = ""
             })
@@ -89,14 +89,5 @@ struct MemberInputView: View {
         }
         .navigationBarTitle("メンバーの入力", displayMode: .inline)
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
-    }
-    
-    /// Add member to list
-    private func setMember(name: String) {
-        self.appState.memberObject.members.append(Member(name: name, groupId: 0))
-    }
-    
-    public func deleteMember(name: String) {
-        dump("削除するよ")
     }
 }
