@@ -26,5 +26,6 @@ struct CredentialMenuButton: View {
         }
         .cornerRadius(10)
         .shadow(color: .gray, radius: 1, x: 0, y: 5)
+        .padding()
     }
 }
