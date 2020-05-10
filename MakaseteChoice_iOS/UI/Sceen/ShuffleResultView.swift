@@ -35,7 +35,7 @@ struct ResultMemberCell: View {
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .background(Color(red: 154/255, green: 205/255, blue: 50/255))
         .cornerRadius(10)
-        .shadow(color: .gray, radius: 1, x: 0, y: 5) //lightblue
+        //.shadow(color: .gray, radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
@@ -60,6 +60,9 @@ struct ShuffleResultView: View {
                   isScrollable: true
             ) { member in
                 ResultMemberCell(member: member)
+            }
+            NavigationLink(destination: MemberInputView()) {
+                RetryButton()
             }
         }
         .navigationBarTitle("シャッフル結果", displayMode: .inline)

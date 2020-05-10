@@ -25,6 +25,7 @@
 		1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */; };
 		1B4322E42466C45B000124F4 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322E32466C45B000124F4 /* QGrid */; };
 		1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E52466DAEB000124F4 /* DecisionButton.swift */; };
+		1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E72467EBF0000124F4 /* RetryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleOptionView.swift; sourceTree = "<group>"; };
 		1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleResultView.swift; sourceTree = "<group>"; };
 		1B4322E52466DAEB000124F4 /* DecisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionButton.swift; sourceTree = "<group>"; };
+		1B4322E72467EBF0000124F4 /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				1B4322E52466DAEB000124F4 /* DecisionButton.swift */,
+				1B4322E72467EBF0000124F4 /* RetryButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				1B43229A24669499000124F4 /* AppDelegate.swift in Sources */,
 				1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */,
+				1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */,
 				1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */,
 				1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
