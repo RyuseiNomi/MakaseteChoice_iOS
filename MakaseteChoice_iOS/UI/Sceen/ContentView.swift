@@ -10,18 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            VStack() {
-                NavigationLink(destination: MemberInputView()) {
-                    CreateGroupButton()
-                }
-                NavigationLink(destination: MemberInputView()) {
-                    CreateGroupButton()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarTitle("ホーム", displayMode: .inline)
-        }
+        MenuView()
     }
 }
 
