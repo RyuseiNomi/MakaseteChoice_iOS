@@ -11,10 +11,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: MemberInputView()) {
-                Text("新規メンバーを作成してChoiceする")
+            VStack(alignment: .center) {
+                MenuView()
+                CredentialMenuButton()
             }
-        }.navigationBarTitle("ホーム", displayMode: .inline)
+            .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        }
     }
 }
 
