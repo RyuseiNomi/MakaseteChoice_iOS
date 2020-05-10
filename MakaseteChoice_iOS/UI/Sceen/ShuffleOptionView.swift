@@ -11,7 +11,7 @@ import SwiftUI
 struct ShuffleOptionView: View {
     
     var member:[Member] = []
-    @State private(set) var groupNum:Int = 0
+    @State private(set) var groupNum:Int = 1
     
     var body: some View {
         VStack() {
@@ -24,20 +24,24 @@ struct ShuffleOptionView: View {
                     self.groupNum = self.groupNum - 1
                 })
                 {
-                    Text("-")
+                    Image("Minus")
                 }
                 Text(String(self.groupNum))
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 48))
                 Button(action: {
                     self.groupNum = self.groupNum + 1
                 })
                 {
-                    Text("＋")
+                    Image("Plus")
                 }
             }
             Spacer()
             NavigationLink(destination: ShuffleResultView(members: self.member, groupNum: self.groupNum)) {
                 DecisionButton()
             }
-        }.navigationBarTitle("シャッフルオプション設定", displayMode: .inline)
+        }
+        .navigationBarTitle("シャッフルオプション設定", displayMode: .inline)
+        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
 }
