@@ -26,6 +26,15 @@ struct MemberCell: View {
                 Text(member.name)
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 16))
+                Spacer()
+                Button(action: {
+                    // TODO メンバー削除
+                }) {
+                    Text("×")
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:5))
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
@@ -49,16 +58,16 @@ struct MemberInputView: View {
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人まで")
             }
-            .padding()
+            .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.member.isEmpty {
                 Text("メンバーが入力されていません。")
             }
             QGrid(self.member,
                   columns: 2,
                   vSpacing: 15,
-                  hSpacing: 0,
+                  hSpacing: 5,
                   vPadding: 10,
-                  hPadding: 20,
+                  hPadding: 10,
                   isScrollable: true
             ) { member in
                 MemberCell(member: member)
@@ -85,5 +94,9 @@ struct MemberInputView: View {
     /// Add member to list
     private func setMember(name: String) {
         self.member.append(Member(name: name, groupId: 0))
+    }
+    
+    public func deleteMember(name: String) {
+        dump("削除するよ")
     }
 }
