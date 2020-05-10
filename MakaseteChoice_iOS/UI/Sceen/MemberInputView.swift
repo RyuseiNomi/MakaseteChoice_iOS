@@ -54,7 +54,7 @@ struct MemberInputView: View {
                 Text("メンバーが入力されていません。")
             }
             QGrid(self.member,
-                  columns: 1,
+                  columns: 2,
                   vSpacing: 15,
                   hSpacing: 0,
                   vPadding: 10,
