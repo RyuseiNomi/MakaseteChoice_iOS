@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,12 @@
 		1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322D62466AE8A000124F4 /* ContentView.swift */; };
 		1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DA2466AEC3000124F4 /* AppState.swift */; };
+		1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DC2466AF8F000124F4 /* MemberInputView.swift */; };
+		1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */; };
+		1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */; };
+		1B4322E42466C45B000124F4 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322E32466C45B000124F4 /* QGrid */; };
+		1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E52466DAEB000124F4 /* DecisionButton.swift */; };
+		1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E72467EBF0000124F4 /* RetryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +78,11 @@
 		1B4322CF2466AB8D000124F4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		1B4322D62466AE8A000124F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B4322DA2466AEC3000124F4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1B4322DC2466AF8F000124F4 /* MemberInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInputView.swift; sourceTree = "<group>"; };
+		1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleOptionView.swift; sourceTree = "<group>"; };
+		1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleResultView.swift; sourceTree = "<group>"; };
+		1B4322E52466DAEB000124F4 /* DecisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionButton.swift; sourceTree = "<group>"; };
+		1B4322E72467EBF0000124F4 /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
+				1B4322E42466C45B000124F4 /* QGrid in Frameworks */,
 				1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */,
+				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +206,8 @@
 		1B4322D42466AE8A000124F4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				1B4322E52466DAEB000124F4 /* DecisionButton.swift */,
+				1B4322E72467EBF0000124F4 /* RetryButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -202,6 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				1B4322D62466AE8A000124F4 /* ContentView.swift */,
+				1B4322DC2466AF8F000124F4 /* MemberInputView.swift */,
+				1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */,
+				1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */,
 			);
 			path = Sceen;
 			sourceTree = "<group>";
@@ -238,6 +255,9 @@
 			dependencies = (
 			);
 			name = MakaseteChoice_iOS;
+			packageProductDependencies = (
+				1B4322E32466C45B000124F4 /* QGrid */,
+			);
 			productName = MakaseteChoice_iOS;
 			productReference = 1B43229624669499000124F4 /* MakaseteChoice_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +330,9 @@
 				Base,
 			);
 			mainGroup = 1B43228D24669499000124F4;
+			packageReferences = (
+				1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
 			productRefGroup = 1B43229724669499000124F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,7 +380,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -375,8 +399,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B43229A24669499000124F4 /* AppDelegate.swift in Sources */,
+				1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */,
+				1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */,
+				1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */,
+				1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
 				1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */,
+				1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */,
 				1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,6 +739,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1B4322E32466C45B000124F4 /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B43228E24669499000124F4 /* Project object */;
 }
