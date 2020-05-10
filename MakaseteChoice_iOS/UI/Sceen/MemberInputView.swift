@@ -9,10 +9,10 @@
 import SwiftUI
 import QGrid
 
-struct Member: Identifiable {
+struct Member: Identifiable, Hashable {
     var id = UUID()
     var name:String
-    var groupId:Int
+    var groupId:Int = 0
 }
 
 struct MemberCell: View {

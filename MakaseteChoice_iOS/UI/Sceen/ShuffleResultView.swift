@@ -12,7 +12,7 @@ struct ShuffleResultView: View {
     
     @State var members:[Member] = []
     var groupNum:Int = 0
-    @State var shuffledGroup:[Member] = []
+    @State var sortedMembers:[Member] = []
     @State private(set) var isCompletShuffle = false
     
     var body: some View {
@@ -27,6 +27,7 @@ struct ShuffleResultView: View {
     }
     
     private func doShuffle(){
+        var shuffledMember:[Member] = []
         self.isCompletShuffle = false
         
         // 配列のシャッフル
@@ -35,14 +36,17 @@ struct ShuffleResultView: View {
         // シャッフルしたメンバーにgroupIDを割り当てる
         var groupId:Int = 1;
         for member in members {
-            self.shuffledGroup.append(Member(name: member.name, groupId: groupId))
+            shuffledMember.append(Member(name: member.name, groupId: groupId))
             if groupId > self.groupNum - 1 {
                 groupId = 1
                 continue
             }
             groupId = groupId + 1
         }
-        dump(self.shuffledGroup)
+        
+        // GroupIDでメンバーをSortする
+        self.sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
+        dump(self.sortedMembers)
         self.isCompletShuffle = true
     }
 }
