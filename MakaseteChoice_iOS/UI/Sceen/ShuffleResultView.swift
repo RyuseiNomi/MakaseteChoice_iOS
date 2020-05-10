@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ShuffleResultView: View {
     
-    var member:[Member] = []
+    @State var members:[Member] = []
     var groupNum:Int = 0
     @State var shuffledGroup:[Member] = []
     @State private(set) var isCompletShuffle = false
@@ -23,16 +23,20 @@ struct ShuffleResultView: View {
             
         }
         .navigationBarTitle("シャッフル結果", displayMode: .inline)
-        .onAppear(perform: { self.doShuffle(members: self.member, groupCount: self.groupNum - 1) })
+        .onAppear(perform: { self.doShuffle() })
     }
     
-    private func doShuffle(members: [Member], groupCount: Int){
+    private func doShuffle(){
         self.isCompletShuffle = false
         
+        // 配列のシャッフル
+        self.members.shuffle()
+        
+        // シャッフルしたメンバーにgroupIDを割り当てる
         var groupId:Int = 1;
         for member in members {
             self.shuffledGroup.append(Member(name: member.name, groupId: groupId))
-            if groupId > groupCount {
+            if groupId > self.groupNum - 1 {
                 groupId = 1
                 continue
             }
