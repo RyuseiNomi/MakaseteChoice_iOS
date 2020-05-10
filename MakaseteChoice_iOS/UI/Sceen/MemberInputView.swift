@@ -18,6 +18,7 @@ struct Member: Identifiable, Hashable {
 struct MemberCell: View {
     
     var member: Member
+    @EnvironmentObject public var appState: AppState
     
     var body: some View {
         ZStack() {
@@ -28,7 +29,7 @@ struct MemberCell: View {
                     .font(Font.custom("Helvetica-Light", size: 16))
                 Spacer()
                 Button(action: {
-                    // TODO メンバー削除
+                    self.appState.deleteMember(name: self.member.name)
                 }) {
                     Text("×")
                         .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
@@ -53,7 +54,7 @@ struct MemberInputView: View {
         VStack() {
             HStack() {
                 Text("残り ")
-                Text(String(self.countLimit))
+                Text(String(self.countLimit - self.appState.memberObject.members.count))
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人まで")
@@ -78,7 +79,6 @@ struct MemberInputView: View {
                     return
                 }
                 self.appState.addMember(member: Member(name: self.name, groupId: 0))
-                self.countLimit = self.countLimit - 1
                 self.name = ""
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())

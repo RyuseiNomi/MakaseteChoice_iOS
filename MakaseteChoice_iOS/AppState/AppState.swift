@@ -20,7 +20,9 @@ class AppState: ObservableObject {
         self.memberObject.members.append(member)
     }
     
-    public func deleteMember(member: Member) {
-        // TODO 配列から要素を検索してindexで削除
+    public func deleteMember(name: String) {
+        // Swiftは要素を指定して配列の削除を行えないため、要素を検索してindex番号を取り出してから削除
+        let deleteMemberIndex = self.memberObject.members.index(where: { $0.name == name })
+        self.memberObject.members.remove(at: deleteMemberIndex!)
     }
 }
