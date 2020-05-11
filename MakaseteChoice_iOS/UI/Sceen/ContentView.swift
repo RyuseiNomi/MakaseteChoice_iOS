@@ -14,6 +14,7 @@ struct ContentView: View {
             VStack(alignment: .center) {
                 MenuView()
                 CredentialMenuButton()
+                    .buttonStyle(PlainButtonStyle())
             }
             .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
         }
