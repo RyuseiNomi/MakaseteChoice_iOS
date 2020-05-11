@@ -91,6 +91,7 @@ struct MemberInputView: View {
                 NavigationLink(destination: ShuffleOptionView()) {
                     DecisionButton()
                 }
+                .disabled(!self.appState.memberObject.isMemberIsOverTwo)
                 .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
             }
             .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 5))
