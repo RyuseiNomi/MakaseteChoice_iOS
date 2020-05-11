@@ -80,6 +80,9 @@ struct MemberInputView: View {
                         //TODO returnを押したタイミングでalertを表示
                         return
                     }
+                    if self.name == "" {
+                        return
+                    }
                     self.appState.addMember(member: Member(name: self.name, groupId: 0))
                     self.name = ""
                 })
