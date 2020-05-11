@@ -17,10 +17,9 @@ struct CredentialMenuButton: View {
                     Image("Phone")
                     Text("このアプリについて")
                         .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                        .font(Font.custom("Helvetica-Light", size: 24))
-                    Spacer()
+                        .font(Font.custom("Helvetica-Light", size: 20))
                 }
-                .padding()
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing:20))
                 .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             }
         }
