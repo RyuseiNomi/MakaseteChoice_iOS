@@ -8,6 +8,7 @@
 
 import SwiftUI
 import QGrid
+import KeyboardObserving
 
 struct Member: Identifiable, Hashable {
     var id = UUID()
@@ -73,20 +74,25 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
-            TextField("名前を入力", text: $name, onCommit: {
-                if self.countLimit == 0 {
-                    //TODO returnを押したタイミングでalertを表示
-                    return
-                }
-                self.appState.addMember(member: Member(name: self.name, groupId: 0))
-                self.name = ""
-            })
+            HStack() {
+                TextField("名前を入力", text: $name, onCommit: {
+                    if self.countLimit == 0 {
+                        //TODO returnを押したタイミングでalertを表示
+                        return
+                    }
+                    self.appState.addMember(member: Member(name: self.name, groupId: 0))
+                    self.name = ""
+                })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            NavigationLink(destination: ShuffleOptionView()) {
-                DecisionButton()
+                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
+                NavigationLink(destination: ShuffleOptionView()) {
+                    DecisionButton()
+                }
+                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
             }
+            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 5))
         }
+        .keyboardObserving()
         .navigationBarTitle("メンバーの入力", displayMode: .inline)
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }

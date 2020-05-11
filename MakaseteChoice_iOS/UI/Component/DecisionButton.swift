@@ -12,9 +12,11 @@ struct DecisionButton: View {
     var body: some View {
         ZStack(alignment: .center) {
             HStack(alignment: .center) {
-                Text("決定")
-                    .font(Font.custom("Helvetica-Light", size: 28))
-                    .padding()
+                Text("次へ")
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 20))
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                    .frame(alignment: .center)
             }
             .frame(minWidth: 0, maxWidth: 100, alignment: .leading)
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
