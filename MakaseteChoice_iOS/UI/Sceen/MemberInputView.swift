@@ -48,17 +48,16 @@ struct MemberCell: View {
 
 struct MemberInputView: View {
     @State private(set) var name = ""
-    @State private var countLimit:Int = 10
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack() {
             HStack() {
-                Text("残り ")
-                Text(String(self.countLimit - self.appState.memberObject.members.count))
+                Text("入力したメンバー")
+                Text(String(self.appState.memberObject.members.count))
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 30))
-                Text("人まで")
+                Text("人")
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.appState.memberObject.members.isEmpty {
@@ -76,10 +75,6 @@ struct MemberInputView: View {
             }
             HStack() {
                 TextField("名前を入力", text: $name, onCommit: {
-                    if self.countLimit == 0 {
-                        //TODO returnを押したタイミングでalertを表示
-                        return
-                    }
                     if self.name == "" {
                         return
                     }
