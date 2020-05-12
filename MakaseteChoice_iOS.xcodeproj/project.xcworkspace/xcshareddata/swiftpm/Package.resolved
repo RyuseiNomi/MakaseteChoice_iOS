@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "KeyboardObserving",
+        "repositoryURL": "https://github.com/nickffox/KeyboardObserving.git",
+        "state": {
+          "branch": null,
+          "revision": "26c0c913c11f0ee77006740ca1d8b478d222184f",
+          "version": "0.3.0"
+        }
+      },
+      {
+        "package": "QGrid",
+        "repositoryURL": "https://github.com/Q-Mobile/QGrid.git",
+        "state": {
+          "branch": null,
+          "revision": "804e59f8cb9f66b226685e9369fb82029742b83a",
+          "version": "0.1.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

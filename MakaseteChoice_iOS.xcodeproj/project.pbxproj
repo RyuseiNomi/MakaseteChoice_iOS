@@ -3,18 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1B43229A24669499000124F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229924669499000124F4 /* AppDelegate.swift */; };
 		1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229B24669499000124F4 /* SceneDelegate.swift */; };
-		1B43229E24669499000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229D24669499000124F4 /* ContentView.swift */; };
 		1B4322A024669499000124F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B43229F24669499000124F4 /* Assets.xcassets */; };
 		1B4322A324669499000124F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A224669499000124F4 /* Preview Assets.xcassets */; };
 		1B4322A624669499000124F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A424669499000124F4 /* LaunchScreen.storyboard */; };
 		1B4322B124669499000124F4 /* MakaseteChoice_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322B024669499000124F4 /* MakaseteChoice_iOSTests.swift */; };
 		1B4322BC24669499000124F4 /* MakaseteChoice_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322BB24669499000124F4 /* MakaseteChoice_iOSUITests.swift */; };
+		1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; };
+		1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; };
+		1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322D62466AE8A000124F4 /* ContentView.swift */; };
+		1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DA2466AEC3000124F4 /* AppState.swift */; };
+		1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DC2466AF8F000124F4 /* MemberInputView.swift */; };
+		1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */; };
+		1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */; };
+		1B4322E42466C45B000124F4 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322E32466C45B000124F4 /* QGrid */; };
+		1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E52466DAEB000124F4 /* DecisionButton.swift */; };
+		1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E72467EBF0000124F4 /* RetryButton.swift */; };
+		1B4322EA2467F2DF000124F4 /* CreateGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */; };
+		1B4322EC2468060B000124F4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322EB2468060B000124F4 /* MenuView.swift */; };
+		1B4322EE24680747000124F4 /* CredentialMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322ED24680747000124F4 /* CredentialMenuButton.swift */; };
+		1B4322F024680766000124F4 /* CredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322EF24680766000124F4 /* CredentialView.swift */; };
+		1B4322F3246985AB000124F4 /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322F2246985AB000124F4 /* KeyboardObserving */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +50,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1B4322CE2466AB7F000124F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */,
+				1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1B43229624669499000124F4 /* MakaseteChoice_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakaseteChoice_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43229924669499000124F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B43229B24669499000124F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B43229D24669499000124F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B43229F24669499000124F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B4322A224669499000124F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B4322A524669499000124F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +79,19 @@
 		1B4322B724669499000124F4 /* MakaseteChoice_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakaseteChoice_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4322BB24669499000124F4 /* MakaseteChoice_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakaseteChoice_iOSUITests.swift; sourceTree = "<group>"; };
 		1B4322BD24669499000124F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B4322CB2466AB7F000124F4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		1B4322CF2466AB8D000124F4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		1B4322D62466AE8A000124F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1B4322DA2466AEC3000124F4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1B4322DC2466AF8F000124F4 /* MemberInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInputView.swift; sourceTree = "<group>"; };
+		1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleOptionView.swift; sourceTree = "<group>"; };
+		1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleResultView.swift; sourceTree = "<group>"; };
+		1B4322E52466DAEB000124F4 /* DecisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionButton.swift; sourceTree = "<group>"; };
+		1B4322E72467EBF0000124F4 /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
+		1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupButton.swift; sourceTree = "<group>"; };
+		1B4322EB2468060B000124F4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		1B4322ED24680747000124F4 /* CredentialMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialMenuButton.swift; sourceTree = "<group>"; };
+		1B4322EF24680766000124F4 /* CredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +99,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4322E42466C45B000124F4 /* QGrid in Frameworks */,
+				1B4322F3246985AB000124F4 /* KeyboardObserving in Frameworks */,
+				1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */,
+				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +130,7 @@
 				1B4322AF24669499000124F4 /* MakaseteChoice_iOSTests */,
 				1B4322BA24669499000124F4 /* MakaseteChoice_iOSUITests */,
 				1B43229724669499000124F4 /* Products */,
+				1B4322CA2466AB7F000124F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +147,12 @@
 		1B43229824669499000124F4 /* MakaseteChoice_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1B4322D22466AE7E000124F4 /* AppState */,
+				1B4322D32466AE8A000124F4 /* UI */,
+				1B4322D92466AE99000124F4 /* Interactor */,
+				1B4322D82466AE93000124F4 /* Repository */,
 				1B43229924669499000124F4 /* AppDelegate.swift */,
 				1B43229B24669499000124F4 /* SceneDelegate.swift */,
-				1B43229D24669499000124F4 /* ContentView.swift */,
 				1B43229F24669499000124F4 /* Assets.xcassets */,
 				1B4322A424669499000124F4 /* LaunchScreen.storyboard */,
 				1B4322A724669499000124F4 /* Info.plist */,
@@ -136,6 +187,70 @@
 			path = MakaseteChoice_iOSUITests;
 			sourceTree = "<group>";
 		};
+		1B4322CA2466AB7F000124F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322CF2466AB8D000124F4 /* RealmSwift.framework */,
+				1B4322CB2466AB7F000124F4 /* Realm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B4322D22466AE7E000124F4 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322DA2466AEC3000124F4 /* AppState.swift */,
+			);
+			path = AppState;
+			sourceTree = "<group>";
+		};
+		1B4322D32466AE8A000124F4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322D42466AE8A000124F4 /* Component */,
+				1B4322D52466AE8A000124F4 /* Sceen */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1B4322D42466AE8A000124F4 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322E52466DAEB000124F4 /* DecisionButton.swift */,
+				1B4322E72467EBF0000124F4 /* RetryButton.swift */,
+				1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */,
+				1B4322ED24680747000124F4 /* CredentialMenuButton.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		1B4322D52466AE8A000124F4 /* Sceen */ = {
+			isa = PBXGroup;
+			children = (
+				1B4322D62466AE8A000124F4 /* ContentView.swift */,
+				1B4322EB2468060B000124F4 /* MenuView.swift */,
+				1B4322DC2466AF8F000124F4 /* MemberInputView.swift */,
+				1B4322DE2466AFC7000124F4 /* ShuffleOptionView.swift */,
+				1B4322E02466AFDF000124F4 /* ShuffleResultView.swift */,
+				1B4322EF24680766000124F4 /* CredentialView.swift */,
+			);
+			path = Sceen;
+			sourceTree = "<group>";
+		};
+		1B4322D82466AE93000124F4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1B4322D92466AE99000124F4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,12 +261,18 @@
 				1B43229224669499000124F4 /* Sources */,
 				1B43229324669499000124F4 /* Frameworks */,
 				1B43229424669499000124F4 /* Resources */,
+				1B4322C92466AAA3000124F4 /* ShellScript */,
+				1B4322CE2466AB7F000124F4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MakaseteChoice_iOS;
+			packageProductDependencies = (
+				1B4322E32466C45B000124F4 /* QGrid */,
+				1B4322F2246985AB000124F4 /* KeyboardObserving */,
+			);
 			productName = MakaseteChoice_iOS;
 			productReference = 1B43229624669499000124F4 /* MakaseteChoice_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +345,10 @@
 				Base,
 			);
 			mainGroup = 1B43228D24669499000124F4;
+			packageReferences = (
+				1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */,
+				1B4322F1246985AB000124F4 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
+			);
 			productRefGroup = 1B43229724669499000124F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -262,14 +387,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B4322C92466AAA3000124F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B43229224669499000124F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1B43229A24669499000124F4 /* AppDelegate.swift in Sources */,
+				1B4322E62466DAEB000124F4 /* DecisionButton.swift in Sources */,
+				1B4322F024680766000124F4 /* CredentialView.swift in Sources */,
+				1B4322E82467EBF0000124F4 /* RetryButton.swift in Sources */,
+				1B4322EA2467F2DF000124F4 /* CreateGroupButton.swift in Sources */,
+				1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */,
+				1B4322EE24680747000124F4 /* CredentialMenuButton.swift in Sources */,
+				1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
-				1B43229E24669499000124F4 /* ContentView.swift in Sources */,
+				1B4322EC2468060B000124F4 /* MenuView.swift in Sources */,
+				1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */,
+				1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */,
+				1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +595,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MakaseteChoice_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,6 +619,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MakaseteChoice_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,6 +759,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+		1B4322F1246985AB000124F4 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nickffox/KeyboardObserving.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1B4322E32466C45B000124F4 /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B4322E22466C45B000124F4 /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+		1B4322F2246985AB000124F4 /* KeyboardObserving */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B4322F1246985AB000124F4 /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
+			productName = KeyboardObserving;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B43228E24669499000124F4 /* Project object */;
 }
