@@ -54,10 +54,12 @@ struct MemberInputView: View {
         VStack() {
             HStack() {
                 Text("入力したメンバー")
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                 Text(String(self.appState.memberObject.members.count))
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人")
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.appState.memberObject.members.isEmpty {

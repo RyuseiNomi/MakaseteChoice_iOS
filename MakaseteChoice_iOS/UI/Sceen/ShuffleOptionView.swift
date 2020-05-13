@@ -19,10 +19,12 @@ struct ShuffleOptionView: View {
         VStack() {
             HStack() {
                 Text("入力されたメンバー")
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                 Text(String(self.appState.memberObject.members.count))
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人")
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
             }
             Spacer()
             HStack() {
