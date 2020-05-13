@@ -18,7 +18,7 @@ struct CredentialView: View {
                 .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                 .font(Font.custom("Helvetica-Light", size: 24))
                 .padding()
-            Text("1.0.1")
+            Text("1.0.0")
                 .foregroundColor(.black)
                 .padding()
             Divider()
