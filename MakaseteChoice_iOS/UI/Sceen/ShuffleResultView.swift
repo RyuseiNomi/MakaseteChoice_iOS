@@ -57,9 +57,12 @@ struct ShuffleResultView: View {
                             }
                         }
                     }
-                    Button("チョイスする", action: {
+                    Button(action: {
                         self.doShuffle()
-                    })
+                    }) {
+                        DecisionButton(label: "チョイス")
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
                 }
             }
         }

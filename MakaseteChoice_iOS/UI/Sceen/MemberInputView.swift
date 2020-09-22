@@ -61,20 +61,9 @@ struct MemberInputView: View {
                     self.appState.addMember(member: Member(name: self.inputedMemberName))
                     self.inputedMemberName = ""
                 }) {
-                    ZStack(alignment: .center) {
-                        HStack(alignment: .center) {
-                            Text("追加")
-                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255)) //white
-                                .font(Font.custom("Helvetica-Light", size: 20))
-                                .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                        }
-                        .frame(minWidth: 0, maxWidth: 100, alignment: .center)
-                        .background(Color(red: 255/255, green: 127/255, blue: 80/255)) //coral
-                    }
-                    .cornerRadius(10)
-                    .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
+                    DecisionButton(label: "追加")
                 }
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
             }
         }
         .keyboardObserving()
