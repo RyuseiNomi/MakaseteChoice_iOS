@@ -11,6 +11,7 @@ import SwiftUI
 struct DecisionButton: View {
     
     public var label:String
+    public var maxWidth:CGFloat
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -21,7 +22,7 @@ struct DecisionButton: View {
                     .font(Font.custom("Helvetica-Light", size: 20))
                     .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
             }
-            .frame(minWidth: 0, maxWidth: 100, alignment: .center)
+            .frame(minWidth: 0, maxWidth: self.maxWidth, alignment: .center)
             .background(Color(red: 255/255, green: 127/255, blue: 80/255))
         }
         .cornerRadius(10)

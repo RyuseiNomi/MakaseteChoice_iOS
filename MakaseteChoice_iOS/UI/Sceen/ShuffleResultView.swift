@@ -24,8 +24,9 @@ struct ShuffleResultView: View {
             } else if isCompletShuffle == false {
                 NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "オプションを設定して", paragraphThree: "グループをチョイスしましょう")
             } else {
+                //TODO グループごとにセクションを区切る
                 QGrid(self.sortedMembers,
-                      columns: 1,
+                      columns: 2,
                       vSpacing: 25,
                       hSpacing: 0,
                       vPadding: 10,
@@ -42,9 +43,9 @@ struct ShuffleResultView: View {
                     Button(action: {
                         self.doShuffle()
                     }) {
-                        DecisionButton(label: "チョイス")
+                        DecisionButton(label: "チョイスする", maxWidth: 200)
                     }
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
+                    .padding(EdgeInsets(top: 15, leading: 5, bottom: 30, trailing: 5))
                 }
             }
         }

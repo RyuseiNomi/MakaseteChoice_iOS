@@ -61,7 +61,7 @@ struct MemberInputView: View {
                     self.appState.addMember(member: Member(name: self.inputedMemberName))
                     self.inputedMemberName = ""
                 }) {
-                    DecisionButton(label: "追加")
+                    DecisionButton(label: "追加", maxWidth: 100)
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
             }
