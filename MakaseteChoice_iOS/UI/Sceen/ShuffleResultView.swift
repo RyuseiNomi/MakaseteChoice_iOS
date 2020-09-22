@@ -20,9 +20,9 @@ struct ShuffleResultView: View {
     var body: some View {
         VStack() {
             if self.appState.memberObject.members.count == 0 {
-                NoMemberViewComponent()
+                NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "「メンバー」メニューから", paragraphThree: "メンバーを追加しましょう")
             } else if isCompletShuffle == false {
-                NoGroupViewComponent()
+                NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "オプションを設定して", paragraphThree: "グループをチョイスしましょう")
             } else {
                 QGrid(self.sortedMembers,
                       columns: 1,

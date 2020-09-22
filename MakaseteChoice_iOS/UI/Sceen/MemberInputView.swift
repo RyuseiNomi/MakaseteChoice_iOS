@@ -36,7 +36,7 @@ struct MemberInputView: View {
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.appState.memberObject.members.isEmpty {
-                NoMemberViewComponent()
+                NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "下の「追加」ボタンより", paragraphThree: "メンバーを追加しましょう")
             }
             QGrid(self.appState.memberObject.members,
                   columns: 2,

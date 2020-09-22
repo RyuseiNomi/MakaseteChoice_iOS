@@ -10,17 +10,22 @@ import SwiftUI
 
 struct NoGroupViewComponent: View {
     
+    public var paragraphOne: String
+    public var paragraphTwo: String
+    public var paragraphThree: String
+    
     var body: some View {
         VStack() {
-            Text("グループがありません。")
+            Text(self.paragraphOne)
                 .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-                .font(Font.custom("Helvetica-Light", size: 25))
-            //Text("右下のボタンから")
-            //    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-            //    .font(Font.custom("Helvetica-Light", size: 25))
-            //Text("グループをチョイスしましょう")
-            //    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-            //    .font(Font.custom("Helvetica-Light", size: 25))
+                .font(Font.custom("Helvetica-Light", size: 30))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
+            Text(self.paragraphTwo)
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                .font(Font.custom("Helvetica-Light", size: 15))
+            Text(self.paragraphThree)
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                .font(Font.custom("Helvetica-Light", size: 15))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
