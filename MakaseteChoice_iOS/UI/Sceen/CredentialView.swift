@@ -15,28 +15,30 @@ struct CredentialView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("アプリのバージョン")
-                .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 .font(Font.custom("Helvetica-Light", size: 24))
                 .padding()
-            Text("1.0.0")
-                .foregroundColor(.black)
+            Text("1.1.0")
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 .padding()
             Divider()
             Text("Credit")
-                .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 .font(Font.custom("Helvetica-Light", size: 24))
                 .padding()
             HStack() {
                 Text("Icons in this app by ")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 Button(action : { UIApplication.shared.open(self.icon8Url) }) {
                     Text("Icons8")
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                        .underline()
                 }
             }
             .padding()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
     }
 }
 
