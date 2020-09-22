@@ -14,10 +14,6 @@
 		1B4322A624669499000124F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4322A424669499000124F4 /* LaunchScreen.storyboard */; };
 		1B4322B124669499000124F4 /* MakaseteChoice_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322B024669499000124F4 /* MakaseteChoice_iOSTests.swift */; };
 		1B4322BC24669499000124F4 /* MakaseteChoice_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322BB24669499000124F4 /* MakaseteChoice_iOSUITests.swift */; };
-		1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; };
-		1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CB2466AB7F000124F4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; };
-		1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4322CF2466AB8D000124F4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322D62466AE8A000124F4 /* ContentView.swift */; };
 		1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DA2466AEC3000124F4 /* AppState.swift */; };
 		1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322DC2466AF8F000124F4 /* MemberInputView.swift */; };
@@ -57,8 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1B4322D12466AB8D000124F4 /* RealmSwift.framework in Embed Frameworks */,
-				1B4322CD2466AB7F000124F4 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,8 +95,6 @@
 			files = (
 				1B4322E42466C45B000124F4 /* QGrid in Frameworks */,
 				1B4322F3246985AB000124F4 /* KeyboardObserving in Frameworks */,
-				1B4322CC2466AB7F000124F4 /* Realm.framework in Frameworks */,
-				1B4322D02466AB8D000124F4 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +253,6 @@
 				1B43229224669499000124F4 /* Sources */,
 				1B43229324669499000124F4 /* Frameworks */,
 				1B43229424669499000124F4 /* Resources */,
-				1B4322C92466AAA3000124F4 /* ShellScript */,
 				1B4322CE2466AB7F000124F4 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -386,28 +377,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1B4322C92466AAA3000124F4 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B43229224669499000124F4 /* Sources */ = {
@@ -591,7 +560,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
@@ -604,8 +575,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.RyuseiNomi.MakaseteChoice-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MakaseteChoice.dist;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,7 +588,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MakaseteChoice_iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 768CF2AATN;
 				ENABLE_PREVIEWS = YES;
@@ -628,8 +603,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.RyuseiNomi.MakaseteChoice-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MakaseteChoice.dist;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

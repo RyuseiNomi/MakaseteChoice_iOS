@@ -30,7 +30,7 @@ struct CredentialView: View {
                 Text("Icons in this app by ")
                     .foregroundColor(.black)
                 Button(action : { UIApplication.shared.open(self.icon8Url) }) {
-                    Text("Icon8")
+                    Text("Icons8")
                 }
             }
             .padding()
