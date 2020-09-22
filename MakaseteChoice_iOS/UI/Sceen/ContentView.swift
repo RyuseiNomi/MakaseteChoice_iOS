@@ -14,26 +14,26 @@ struct ContentView: View {
             TabView {
                 MemberInputView()
                     .tabItem {
-                        Image("Member")
+                        Image(systemName: "person.fill")
                             .resizable()
                             .scaledToFit()
                         Text("メンバー")
                     }
                 ShuffleResultView()
                     .tabItem {
-                        Image("Group")
+                        Image(systemName: "person.2.fill")
                             .resizable()
-                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
                         Text("チョイス")
                 }
                 CredentialView()
                     .tabItem {
-                        Image("Phone")
+                        Image(systemName: "gear")
                             .resizable()
                             .scaledToFit()
-                        Text("このアプリについて")
+                        Text("設定")
                     }
-            }
+            }.accentColor(.blue)
         }
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
