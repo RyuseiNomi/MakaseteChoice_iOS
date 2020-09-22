@@ -19,6 +19,13 @@ struct ContentView: View {
                             .scaledToFit()
                         Text("メンバー")
                     }
+                ShuffleResultView()
+                    .tabItem {
+                        Image("Group")
+                            .resizable()
+                            .scaledToFit()
+                        Text("チョイス")
+                }
                 CredentialView()
                     .tabItem {
                         Image("Phone")

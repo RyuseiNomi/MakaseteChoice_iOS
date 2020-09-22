@@ -17,15 +17,15 @@ struct ResultMemberCell: View {
             HStack() {
                 Image("Member")
                 Text(member.name)
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 16))
                 Spacer()
                 VStack() {
                     Text("グループ")
-                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                         .font(Font.custom("Helvetica-Light", size: 12))
                     Text(String(member.groupId))
-                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                         .font(Font.custom("Helvetica", size: 20))
                         .bold()
                 }
@@ -66,8 +66,7 @@ struct ShuffleResultView: View {
 //            }
         }
         .onAppear(perform: { self.doShuffle() })
-        .navigationBarTitle("シャッフル結果", displayMode: .inline)
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
     }
     
     private func doShuffle(){
