@@ -14,13 +14,13 @@ struct NoGroupViewComponent: View {
         VStack() {
             Text("グループがありません。")
                 .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-                .font(Font.custom("Helvetica-Light", size: 30))
+                .font(Font.custom("Helvetica-Light", size: 25))
             Text("右下のボタンから")
                 .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-                .font(Font.custom("Helvetica-Light", size: 30))
+                .font(Font.custom("Helvetica-Light", size: 25))
             Text("グループをチョイスしましょう")
                 .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-                .font(Font.custom("Helvetica-Light", size: 30))
+                .font(Font.custom("Helvetica-Light", size: 25))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
