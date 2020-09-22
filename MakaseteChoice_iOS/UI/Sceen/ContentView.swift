@@ -10,14 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center) {
-                MenuView()
-                CredentialMenuButton()
-                    .buttonStyle(PlainButtonStyle())
+        VStack(alignment: .center) {
+            TabView {
+                MemberInputView()
+                    .tabItem {
+                        Image("Member")
+                            .resizable()
+                            .scaledToFit()
+                        Text("メンバー")
+                    }
+                CredentialView()
+                    .tabItem {
+                        Image("Phone")
+                            .resizable()
+                            .scaledToFit()
+                        Text("このアプリについて")
+                    }
             }
-            .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
         }
+        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
 }
 

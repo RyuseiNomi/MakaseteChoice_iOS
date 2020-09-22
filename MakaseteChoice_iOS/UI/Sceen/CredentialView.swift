@@ -39,3 +39,9 @@ struct CredentialView: View {
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
     }
 }
+
+struct CredentialView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
