@@ -28,6 +28,7 @@
 		1B4322F024680766000124F4 /* CredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4322EF24680766000124F4 /* CredentialView.swift */; };
 		1B4322F3246985AB000124F4 /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4322F2246985AB000124F4 /* KeyboardObserving */; };
 		1BD2780C2519CCE100A1DAEE /* ShuffleActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2780B2519CCE100A1DAEE /* ShuffleActionButton.swift */; };
+		1BD2780E2519F80000A1DAEE /* ResultMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		1B4322ED24680747000124F4 /* CredentialMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialMenuButton.swift; sourceTree = "<group>"; };
 		1B4322EF24680766000124F4 /* CredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialView.swift; sourceTree = "<group>"; };
 		1BD2780B2519CCE100A1DAEE /* ShuffleActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleActionButton.swift; sourceTree = "<group>"; };
+		1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMemberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				1B4322E92467F2DF000124F4 /* CreateGroupButton.swift */,
 				1B4322ED24680747000124F4 /* CredentialMenuButton.swift */,
 				1BD2780B2519CCE100A1DAEE /* ShuffleActionButton.swift */,
+				1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
 				1B4322EC2468060B000124F4 /* MenuView.swift in Sources */,
 				1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */,
+				1BD2780E2519F80000A1DAEE /* ResultMemberCell.swift in Sources */,
 				1BD2780C2519CCE100A1DAEE /* ShuffleActionButton.swift in Sources */,
 				1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */,
 				1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */,
