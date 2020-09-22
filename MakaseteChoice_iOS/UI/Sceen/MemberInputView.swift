@@ -54,16 +54,17 @@ struct MemberInputView: View {
         VStack() {
             HStack() {
                 Text("入力したメンバー")
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 Text(String(self.appState.memberObject.members.count))
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 30))
                 Text("人")
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.appState.memberObject.members.isEmpty {
                 Text("メンバーが入力されていません。")
+                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
             }
             QGrid(self.appState.memberObject.members,
                   columns: 2,
@@ -75,25 +76,28 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
-            HStack() {
-                TextField("名前を入力", text: $name, onCommit: {
-                    if self.name == "" {
-                        return
-                    }
-                    self.appState.addMember(member: Member(name: self.name, groupId: 0))
-                    self.name = ""
-                })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
-                NavigationLink(destination: ShuffleOptionView()) {
-                    DecisionButton()
+            TextField("名前を入力", text: $name, onCommit: {
+                if self.name == "" {
+                    return
                 }
-                .disabled(!self.appState.memberObject.isMemberIsOverTwo)
-                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
-            }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 5))
+                self.appState.addMember(member: Member(name: self.name, groupId: 0))
+                self.name = ""
+            })
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
+            //NavigationLink(destination: ShuffleOptionView()) {
+            //    DecisionButton()
+            //}
+            //.disabled(!self.appState.memberObject.isMemberIsOverTwo)
+            //.padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
         }
         .keyboardObserving()
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 77/255, green: 77/255, blue: 77/255)) //gray
+    }
+}
+
+struct MemberInputView_Previews: PreviewProvider {
+    static var previews: some View {
+        MemberInputView()
     }
 }
