@@ -51,6 +51,9 @@ struct ShuffleResultView: View {
             if isCompletShuffle == false {
                 Text("シャッフル中...")
             }
+            if self.members == [] {
+                Text("グループがありません。")
+            }
             QGrid(self.sortedMembers,
                   columns: 1,
                   vSpacing: 25,
