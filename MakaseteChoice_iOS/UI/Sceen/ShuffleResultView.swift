@@ -45,7 +45,8 @@ struct ShuffleResultView: View {
     var groupNum:Int = 0
     @State var sortedMembers:[Member] = []
     @State private(set) var isCompletShuffle = false
-    
+    @State private var isShowingModal = false
+
     var body: some View {
         VStack() {
             if isCompletShuffle == false {
@@ -68,7 +69,7 @@ struct ShuffleResultView: View {
             HStack() {
                 Spacer()
                 ShuffleActionButton()
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 30.0, trailing: 30.0))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 30.0, trailing: 30.0))
             }
         }
         .onAppear(perform: { self.doShuffle() })

@@ -10,13 +10,19 @@ import SwiftUI
 
 struct ShuffleActionButton: View {
     
+    @State private var isShowingModal = false
+
     var body: some View {
         ZStack() {
             Button(action:{
-                print("tapped!")
-            }, label: {
-                Text("A")
-            })
+                self.isShowingModal.toggle()
+            }) {
+                Image("Group")
+                    .resizable()
+                    .scaledToFit()
+            }.sheet(isPresented: $isShowingModal) {
+                ShuffleOptionView()
+            }
                 .frame(width: 60, height: 60)
                 .background(Color.orange)
                 .cornerRadius(30.0)
