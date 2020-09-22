@@ -63,8 +63,7 @@ struct MemberInputView: View {
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
             if self.appState.memberObject.members.isEmpty {
-                Text("メンバーが入力されていません。")
-                .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                NoMemberViewComponent()
             }
             QGrid(self.appState.memberObject.members,
                   columns: 2,
