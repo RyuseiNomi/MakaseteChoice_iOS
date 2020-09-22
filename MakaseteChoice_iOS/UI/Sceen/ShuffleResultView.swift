@@ -64,9 +64,12 @@ struct ShuffleResultView: View {
             ) { member in
                 ResultMemberCell(member: member)
             }
-//            NavigationLink(destination: MemberInputView()) {
-//                RetryButton()
-//            }
+            Spacer()
+            HStack() {
+                Spacer()
+                ShuffleActionButton()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 30.0, trailing: 30.0))
+            }
         }
         .onAppear(perform: { self.doShuffle() })
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
