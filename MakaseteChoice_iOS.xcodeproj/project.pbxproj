@@ -27,6 +27,7 @@
 		1BD2780E2519F80000A1DAEE /* ResultMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */; };
 		1BD278102519FACE00A1DAEE /* NoMemberViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2780F2519FACE00A1DAEE /* NoMemberViewComponent.swift */; };
 		1BD278122519FADA00A1DAEE /* NoGroupViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD278112519FADA00A1DAEE /* NoGroupViewComponent.swift */; };
+		1BD27814251A45B400A1DAEE /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD27813251A45B300A1DAEE /* MemberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMemberCell.swift; sourceTree = "<group>"; };
 		1BD2780F2519FACE00A1DAEE /* NoMemberViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMemberViewComponent.swift; sourceTree = "<group>"; };
 		1BD278112519FADA00A1DAEE /* NoGroupViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupViewComponent.swift; sourceTree = "<group>"; };
+		1BD27813251A45B300A1DAEE /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				1BD2780D2519F80000A1DAEE /* ResultMemberCell.swift */,
 				1BD2780F2519FACE00A1DAEE /* NoMemberViewComponent.swift */,
 				1BD278112519FADA00A1DAEE /* NoGroupViewComponent.swift */,
+				1BD27813251A45B300A1DAEE /* MemberCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				1BD2780E2519F80000A1DAEE /* ResultMemberCell.swift in Sources */,
 				1BD2780C2519CCE100A1DAEE /* ShuffleActionButton.swift in Sources */,
 				1BD278122519FADA00A1DAEE /* NoGroupViewComponent.swift in Sources */,
+				1BD27814251A45B400A1DAEE /* MemberCell.swift in Sources */,
 				1B4322E12466AFDF000124F4 /* ShuffleResultView.swift in Sources */,
 				1B4322DB2466AEC3000124F4 /* AppState.swift in Sources */,
 			);
