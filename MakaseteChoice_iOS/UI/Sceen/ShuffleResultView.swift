@@ -17,15 +17,15 @@ struct ResultMemberCell: View {
             HStack() {
                 Image("Member")
                 Text(member.name)
-                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 16))
                 Spacer()
                 VStack() {
                     Text("グループ")
-                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                         .font(Font.custom("Helvetica-Light", size: 12))
                     Text(String(member.groupId))
-                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                         .font(Font.custom("Helvetica", size: 20))
                         .bold()
                 }
@@ -41,47 +41,64 @@ struct ResultMemberCell: View {
 
 struct ShuffleResultView: View {
     
-    @State var members:[Member] = []
-    var groupNum:Int = 0
+    @State private(set) var groupNum:Int = 1
     @State var sortedMembers:[Member] = []
     @State private(set) var isCompletShuffle = false
     @State private var isShowingModal = false
+    @EnvironmentObject public var appState: AppState
 
     var body: some View {
         VStack() {
-            if isCompletShuffle == false {
-                Text("シャッフル中...")
-            }
-            if self.members == [] {
+            if self.appState.memberObject.members.count == 0 || isCompletShuffle == false {
                 Text("グループがありません。")
-            }
-            QGrid(self.sortedMembers,
-                  columns: 1,
-                  vSpacing: 25,
-                  hSpacing: 0,
-                  vPadding: 10,
-                  hPadding: 20,
-                  isScrollable: true
-            ) { member in
-                ResultMemberCell(member: member)
+            } else {
+                QGrid(self.sortedMembers,
+                      columns: 1,
+                      vSpacing: 25,
+                      hSpacing: 0,
+                      vPadding: 10,
+                      hPadding: 20,
+                      isScrollable: true
+                ) { member in
+                    ResultMemberCell(member: member)
+                }
             }
             Spacer()
-            HStack() {
-                Spacer()
-                ShuffleActionButton()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 30.0, trailing: 30.0))
+            VStack() {
+                //TODO 組分け数を決定するUIをモーダルなどに切り出す
+                HStack() {
+                    Text("メンバー数")
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                    Text(String(self.appState.memberObject.members.count))
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 16))
+                    Text("人")
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                }
+                HStack() {
+                    if self.appState.memberObject.members.count != 0 {
+                        Text("組分け数")
+                            .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                        Stepper(value: $groupNum, in: 1...self.appState.memberObject.members.count) {
+                            Text("\(groupNum)")
+                        }
+                    }
+                }
+                Button("チョイスする", action: {
+                    self.doShuffle()
+                })
             }
         }
-        .onAppear(perform: { self.doShuffle() })
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
     }
     
     private func doShuffle(){
+        var members = self.appState.memberObject.members
         var shuffledMember:[Member] = []
         self.isCompletShuffle = false
         
         // 配列のシャッフル
-        self.members.shuffle()
+        members.shuffle()
         
         // シャッフルしたメンバーにgroupIDを割り当てる
         var groupId:Int = 1;
