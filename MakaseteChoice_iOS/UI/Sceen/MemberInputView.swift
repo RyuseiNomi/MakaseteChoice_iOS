@@ -9,6 +9,7 @@
 import SwiftUI
 import QGrid
 import KeyboardObserving
+import Combine
 
 struct Member: Identifiable, Hashable {
     var id = UUID()
@@ -47,7 +48,9 @@ struct MemberCell: View {
 }
 
 struct MemberInputView: View {
-    @State private(set) var name = ""
+    
+    @State private(set) var isShowingModal = false
+    @State public var inputedMemberName:String = ""
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -75,23 +78,74 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
-            TextField("名前を入力", text: $name, onCommit: {
-                if self.name == "" {
+            Spacer()
+            HStack() {
+                Spacer()
+                ZStack() {
+                    Button(action: {
+                        let alertHC = UIHostingController(rootView: MemberInputAlert(inputedMemberName: self.$inputedMemberName))
+                        alertHC.preferredContentSize = CGSize(width: 200, height: 100)
+                        alertHC.modalPresentationStyle = UIModalPresentationStyle.formSheet
+                        UIApplication.shared.windows[0].rootViewController?.present(alertHC, animated: true)
+                        self.isShowingModal.toggle()
+                    }, label: {
+                        Text("＋")
+                    })
+                    .frame(width:60, height:60)
+                    .background(Color.orange)
+                    .cornerRadius(30.0)
+                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 30.0, trailing: 30.0))
+                }
+            }
+            TextField("名前を入力", text: $inputedMemberName, onCommit: {
+                if self.inputedMemberName == "" {
                     return
                 }
-                self.appState.addMember(member: Member(name: self.name, groupId: 0))
-                self.name = ""
+                self.inputedMemberName = ""
             })
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
-            //NavigationLink(destination: ShuffleOptionView()) {
-            //    DecisionButton()
-            //}
-            //.disabled(!self.appState.memberObject.isMemberIsOverTwo)
-            //.padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
         }
         .keyboardObserving()
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) //gray
+    }
+}
+
+struct MemberInputAlert: View {
+    @State private var name:String = ""
+    @Binding public var inputedMemberName:String
+
+    var body: some View {
+        ZStack() {
+            VStack() {
+                Text("名前を入力")
+                TextField("名前を入力", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                Divider()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: {
+                            self.inputedMemberName = self.name
+                        })
+                    }) {
+                        Text("OK")
+                    }
+                    Spacer()
+                    Divider()
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: {})
+                    }) {
+                        Text("Cancel")
+                    }
+                    Spacer()
+                }.padding(0)
+            }
+            .frame(width: 300, height: 200)
+            .background(Color(white: 0.9))
+        }
+        .background(Color.clear)
     }
 }
 
