@@ -24,7 +24,6 @@ class ShuffleInteractor {
         var shuffledMember:[Member] = []
         var pinnedMembers:[Member] = []
         
-        print(members)
         // ピン留めの対象となっているメンバーを配列から除外
         for member in members {
             if member.isPinned == true {
@@ -45,7 +44,7 @@ class ShuffleInteractor {
             // 共通のStateにメンバーのグループIDを保持
             let targetMemberIndex:Int? = self.appState.memberObject.members.index(where: { $0.name == member.name })
             if targetMemberIndex == nil {
-                print("削除されたユーザを選択")
+                // 削除されたユーザを選択しているため、何もせずfor文を抜ける
                 continue
             }
             self.appState.memberObject.members[targetMemberIndex!].groupId = groupId
