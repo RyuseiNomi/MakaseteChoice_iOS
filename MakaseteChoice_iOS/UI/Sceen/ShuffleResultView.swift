@@ -41,7 +41,9 @@ struct ShuffleResultView: View {
                 VStack() {
                     ShuffleOptionView(groupNum: self.$groupNum)
                     Button(action: {
-                        self.doShuffle()
+                        let shuffleInteractor = ShuffleInteractor(appState: self.appState)
+                        self.sortedMembers = shuffleInteractor.doShuffle(groupNumber: self.groupNum)
+                        self.isCompletShuffle = true
                     }) {
                         DecisionButton(label: "チョイスする", maxWidth: 200)
                     }
@@ -50,29 +52,5 @@ struct ShuffleResultView: View {
             }
         }
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
-    }
-    
-    private func doShuffle(){
-        var members = self.appState.memberObject.members
-        var shuffledMember:[Member] = []
-        self.isCompletShuffle = false
-        
-        // 配列のシャッフル
-        members.shuffle()
-        
-        // シャッフルしたメンバーにgroupIDを割り当てる
-        var groupId:Int = 1;
-        for member in members {
-            shuffledMember.append(Member(name: member.name, groupId: groupId))
-            if groupId > self.groupNum - 1 {
-                groupId = 1
-                continue
-            }
-            groupId = groupId + 1
-        }
-        
-        // GroupIDでメンバーをSortする
-        self.sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
-        self.isCompletShuffle = true
     }
 }
