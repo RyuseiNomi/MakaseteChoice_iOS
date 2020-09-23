@@ -32,4 +32,9 @@ class AppState: ObservableObject {
             self.memberObject.isMemberIsOverTwo = false
         }
     }
+    
+    public func togglePin(name: String) {
+        let pinTargetMemberIndex = self.memberObject.members.index(where: { $0.name == name })
+        self.memberObject.members[pinTargetMemberIndex!].isPinned.toggle()
+    }
 }

@@ -12,5 +12,6 @@ struct Member: Identifiable, Hashable {
     var id = UUID()
     var name:String
     var groupId:Int = 0
+    var isPinned:Bool = false
 }
 
