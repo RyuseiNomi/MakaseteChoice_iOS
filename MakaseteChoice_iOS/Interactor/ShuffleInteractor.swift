@@ -22,6 +22,17 @@ class ShuffleInteractor {
     public func doShuffle(groupNumber: Int) -> [Member] {
         var members = self.appState.memberObject.members
         var shuffledMember:[Member] = []
+        var pinnedMembers:[Member] = []
+        
+        print(members)
+        // ピン留めの対象となっているメンバーを配列から除外
+        for member in members {
+            if member.isPinned == true {
+                pinnedMembers.append(member)
+                let targetMemberIndex:Int? = members.index(where: { $0.name == member.name })
+                members.remove(at: targetMemberIndex!)
+            }
+        }
 
         // 配列のシャッフル
         members.shuffle()
@@ -30,12 +41,23 @@ class ShuffleInteractor {
         var groupId:Int = 1;
         for member in members {
             shuffledMember.append(Member(name: member.name, groupId: groupId))
+            
+            // 共通のStateにメンバーのグループIDを保持
+            let targetMemberIndex:Int? = self.appState.memberObject.members.index(where: { $0.name == member.name })
+            if targetMemberIndex == nil {
+                print("削除されたユーザを選択")
+                continue
+            }
+            self.appState.memberObject.members[targetMemberIndex!].groupId = groupId
             if groupId > groupNumber - 1 {
                 groupId = 1
                 continue
             }
             groupId = groupId + 1
         }
+        
+        // ピン留めされていたメンバーを戻す
+        shuffledMember.append(contentsOf: pinnedMembers)
         
         // GroupIDでメンバーをSortする
         var sortedMembers:[Member] = []
