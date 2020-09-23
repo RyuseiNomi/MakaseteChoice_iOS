@@ -45,8 +45,15 @@ struct ResultMemberCell: View {
     
     /// ピン留めの対象となるメンバーの現在のピン留めステータスを取得
     private func getMemberPinnedStatus() -> Bool {
-        let targetMemberIndex = self.appState.memberObject.members.index(where: { $0.name == member.name })
-        return self.appState.memberObject.members[targetMemberIndex!].isPinned
+        let targetMemberIndex:Int? = self.appState.memberObject.members.index(where: { $0.name == member.name })
+        // ピン留めしたユーザが既に削除されている場合はfalseを返す
+        // Optional型の恩恵
+        if targetMemberIndex == nil {
+            print("削除されたユーザを選択")
+            return false
+        }
+        let targetMember: Member = self.appState.memberObject.members[targetMemberIndex!]
+        return targetMember.isPinned
     }
 }
 
