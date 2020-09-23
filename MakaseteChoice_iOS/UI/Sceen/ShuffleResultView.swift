@@ -19,10 +19,24 @@ struct ShuffleResultView: View {
 
     var body: some View {
         VStack() {
+            HStack() {
+                Text("チョイス結果")
+                    .fontWeight(.black)
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 25))
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 0))
+                Spacer()
+                Text("メンバー数: \(self.group.count)")
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 15))
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 5, trailing: 5))
+            }
+            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+            .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 0))
             if self.appState.memberObject.members.count == 0 {
                 NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "「メンバー」メニューから", paragraphThree: "メンバーを追加しましょう")
             } else if isCompletShuffle == false {
-                NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "オプションを設定して", paragraphThree: "グループをチョイスしましょう")
+                NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "組分け数を設定して", paragraphThree: "グループをチョイスしましょう")
             } else {
                 GroupCell(members: self.group)
             }

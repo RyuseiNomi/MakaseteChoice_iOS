@@ -16,6 +16,11 @@ struct NoMemberViewComponent: View {
     
     var body: some View {
         VStack() {
+            Image(systemName: "person.circle")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.gray)
+                .frame(maxWidth: 50, maxHeight: 50)
             Text(self.paragraphOne)
                 .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 .font(Font.custom("Helvetica-Light", size: 30))

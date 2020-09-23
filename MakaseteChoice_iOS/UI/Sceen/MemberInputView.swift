@@ -19,15 +19,14 @@ struct MemberInputView: View {
     var body: some View {
         VStack() {
             HStack() {
-                Text("入力したメンバー")
-                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
-                Text(String(self.appState.memberObject.members.count))
+                Text("メンバー入力")
+                    .fontWeight(.black)
                     .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
-                    .font(Font.custom("Helvetica-Light", size: 30))
-                Text("人")
-                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 25))
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 0))
             }
-            .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
+            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+            .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 0))
             if self.appState.memberObject.members.isEmpty {
                 NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "下の「追加」ボタンより", paragraphThree: "メンバーを追加しましょう")
             }
@@ -41,6 +40,17 @@ struct MemberInputView: View {
             ) { member in
                 MemberCell(member: member)
             }
+            HStack() {
+                Text("入力したメンバー")
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                Text(String(self.appState.memberObject.members.count))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 30))
+                Text("人")
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+            }
+            .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
+            .frame(alignment: .leading)
             HStack() {
                 TextField("名前を入力", text: $inputedMemberName, onCommit: {
                     if self.inputedMemberName == "" {

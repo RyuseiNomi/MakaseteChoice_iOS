@@ -15,11 +15,17 @@ struct ResultMemberCell: View {
     
     var body: some View {
         HStack() {
-            Text(String(member.groupId))
-                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255))
-                .font(Font.custom("Helvetica", size: 30))
-                .fontWeight(.black)
-                .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 15))
+            VStack() {
+                Text("グループ")
+                    .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255))
+                    .font(Font.custom("Helvetica", size: 10))
+                    .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 15))
+                Text(String(member.groupId))
+                    .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255))
+                    .font(Font.custom("Helvetica", size: 30))
+                    .fontWeight(.black)
+                    .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 15))
+            }
             HStack() {
                 Image("Member")
                 Text(member.name)
