@@ -12,7 +12,7 @@ import QGrid
 struct ShuffleResultView: View {
     
     @State private(set) var groupNum:Int = 1
-    @State var sortedMembers:[Member] = []
+    @State var group:[Member] = []
     @State private(set) var isCompletShuffle = false
     @State private var isShowingModal = false
     @EnvironmentObject public var appState: AppState
@@ -24,17 +24,7 @@ struct ShuffleResultView: View {
             } else if isCompletShuffle == false {
                 NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "オプションを設定して", paragraphThree: "グループをチョイスしましょう")
             } else {
-                //TODO グループごとにセクションを区切る
-                QGrid(self.sortedMembers,
-                      columns: 2,
-                      vSpacing: 25,
-                      hSpacing: 0,
-                      vPadding: 10,
-                      hPadding: 20,
-                      isScrollable: true
-                ) { member in
-                    ResultMemberCell(member: member)
-                }
+                GroupCell(members: self.group)
             }
             if self.appState.memberObject.members.count != 0 {
                 Spacer()
@@ -42,7 +32,7 @@ struct ShuffleResultView: View {
                     ShuffleOptionView(groupNum: self.$groupNum)
                     Button(action: {
                         let shuffleInteractor = ShuffleInteractor(appState: self.appState)
-                        self.sortedMembers = shuffleInteractor.doShuffle(groupNumber: self.groupNum)
+                        self.group = shuffleInteractor.doShuffle(groupNumber: self.groupNum)
                         self.isCompletShuffle = true
                     }) {
                         DecisionButton(label: "チョイスする", maxWidth: 200)
@@ -52,5 +42,26 @@ struct ShuffleResultView: View {
             }
         }
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
+    }
+}
+
+struct GroupCell: View {
+    
+    public var members:[Member]
+    
+    var body: some View {
+        VStack() {
+            //TODO グループごとにセクションを区切る
+            QGrid(self.members,
+                  columns: 1,
+                  vSpacing: 25,
+                  hSpacing: 0,
+                  vPadding: 10,
+                  hPadding: 20,
+                  isScrollable: true
+            ) { member in
+                ResultMemberCell(member: member)
+            }
+        }
     }
 }

@@ -12,15 +12,14 @@ import SwiftUI
 class ShuffleInteractor {
     
     public var appState:AppState
-    private(set) var sortedMembers:[Member] = []
-    
+
     /// ViewコンポーネントよりEnvironmentObjectを取得し、クラスプロパティに格納する
     init(appState: AppState) {
         self.appState = appState
     }
     
     /// 指定された組分け数に応じてグループメンバーをチョイスする
-    public func doShuffle(groupNumber: Int) -> [Member]{
+    public func doShuffle(groupNumber: Int) -> [Member] {
         var members = self.appState.memberObject.members
         var shuffledMember:[Member] = []
 
@@ -39,7 +38,8 @@ class ShuffleInteractor {
         }
         
         // GroupIDでメンバーをSortする
-        self.sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
-        return self.sortedMembers
+        var sortedMembers:[Member] = []
+        sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
+        return sortedMembers
     }
 }
