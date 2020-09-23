@@ -9,13 +9,6 @@
 import SwiftUI
 import QGrid
 import KeyboardObserving
-import Combine
-
-struct Member: Identifiable, Hashable {
-    var id = UUID()
-    var name:String
-    var groupId:Int = 0
-}
 
 struct MemberInputView: View {
     
