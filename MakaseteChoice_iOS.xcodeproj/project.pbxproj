@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B0DAD80251B0E09004D9095 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DAD7F251B0E09004D9095 /* Member.swift */; };
 		1B0DAD82251B0EED004D9095 /* ShuffleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DAD81251B0EED004D9095 /* ShuffleInteractor.swift */; };
+		1B0DAD84251C4557004D9095 /* GroupNumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DAD83251C4557004D9095 /* GroupNumberPicker.swift */; };
 		1B43229A24669499000124F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229924669499000124F4 /* AppDelegate.swift */; };
 		1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43229B24669499000124F4 /* SceneDelegate.swift */; };
 		1B4322A024669499000124F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B43229F24669499000124F4 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		1B0DAD7F251B0E09004D9095 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		1B0DAD81251B0EED004D9095 /* ShuffleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleInteractor.swift; sourceTree = "<group>"; };
+		1B0DAD83251C4557004D9095 /* GroupNumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNumberPicker.swift; sourceTree = "<group>"; };
 		1B43229624669499000124F4 /* MakaseteChoice_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakaseteChoice_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43229924669499000124F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B43229B24669499000124F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				1BD2780F2519FACE00A1DAEE /* NoMemberViewComponent.swift */,
 				1BD278112519FADA00A1DAEE /* NoGroupViewComponent.swift */,
 				1BD27813251A45B300A1DAEE /* MemberCell.swift */,
+				1B0DAD83251C4557004D9095 /* GroupNumberPicker.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				1B4322DF2466AFC7000124F4 /* ShuffleOptionView.swift in Sources */,
 				1B4322DD2466AF8F000124F4 /* MemberInputView.swift in Sources */,
 				1B0DAD80251B0E09004D9095 /* Member.swift in Sources */,
+				1B0DAD84251C4557004D9095 /* GroupNumberPicker.swift in Sources */,
 				1BD278102519FACE00A1DAEE /* NoMemberViewComponent.swift in Sources */,
 				1B43229C24669499000124F4 /* SceneDelegate.swift in Sources */,
 				1B4322D72466AE8B000124F4 /* ContentView.swift in Sources */,
