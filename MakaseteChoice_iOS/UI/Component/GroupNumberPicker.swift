@@ -16,14 +16,22 @@ struct GroupNumPicker: View {
 
     var body: some View {
         VStack() {
-            Button(action: {
-                self.isShowingModal.toggle()
-            }) {
-                HStack() {
-                    Spacer()
-                    Text("完了")
+            HStack() {
+                Text("組み合わせ数を選択")
+                    .foregroundColor(Color.gray) // whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 16))
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                Button(action: {
+                    self.isShowingModal.toggle()
+                }) {
+                    HStack() {
+                        Spacer()
+                        Text("完了")
+                    }
                 }
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
             }
+
             Picker(selection: $groupNum, label: Text("")) {
                 ForEach( 0 ..< self.membersCount+1 ) {
                     if $0 != 0 {
@@ -32,9 +40,23 @@ struct GroupNumPicker: View {
                 }
             }
             .frame(width: 200)
-            .labelsHidden()
+            .background(Color.white) // silver
+            
+            HStack() {
+                Text("1グループあたり")
+                    .foregroundColor(Color.gray) // whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 12))
+                Text(String(self.membersCount / self.groupNum))
+                    .foregroundColor(Color.gray) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 20))
+                Text("人")
+                    .foregroundColor(Color.gray) // whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 12))
+            }
         }
         .background(Color.white)
+        .cornerRadius(30)
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
     }
 }
 
