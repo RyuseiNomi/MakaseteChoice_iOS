@@ -24,10 +24,11 @@ struct GroupNumPicker: View {
                     Text("完了")
                 }
             }
-            
             Picker(selection: $groupNum, label: Text("")) {
-                ForEach( 1 ..< self.membersCount ) {
-                    Text("\($0)")
+                ForEach( 0 ..< self.membersCount+1 ) {
+                    if $0 != 0 {
+                        Text("\($0)")
+                    }
                 }
             }
             .frame(width: 200)
