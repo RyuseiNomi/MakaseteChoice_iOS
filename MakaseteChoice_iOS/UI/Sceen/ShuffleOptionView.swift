@@ -11,10 +11,7 @@ import SwiftUI
 struct ShuffleOptionView: View {
 
     @Binding public var groupNum: Int
-    // Pickerのポジションに関するState変数群
-    @Binding public var currentOffset: CGFloat
-    @Binding public var openOffset: CGFloat
-    @Binding public var closeOffset: CGFloat
+    @Binding public var isShowingPicker: Bool
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -33,7 +30,7 @@ struct ShuffleOptionView: View {
                         .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255))
                         .frame(maxWidth: 20, maxHeight: 20)
                         .onTapGesture {
-                            self.currentOffset = self.openOffset
+                            self.isShowingPicker.toggle()
                         }
                 }
                 Spacer()

@@ -12,17 +12,13 @@ import QGrid
 struct ShuffleResultView: View {
     
     @State private(set) var groupNum:Int = 1
-    @State var group:[Member] = []
+    @State private(set) var group:[Member] = []
     @State private(set) var isCompletShuffle = false
-    @State private var isShowingModal = false
-    // Pickerのポジションに関するState変数群
-    @State public var currentOffset = CGFloat.zero
-    @State public var openOffset = CGFloat.zero
-    @State public var closeOffset = CGFloat.zero
+    @State private(set) var isShowingPicker = false
     @EnvironmentObject public var appState: AppState
 
     var body: some View {
-        GeometryReader { geometry in
+        ZStack() {
             VStack() {
                 HStack() {
                     Text("チョイス結果")
@@ -50,9 +46,7 @@ struct ShuffleResultView: View {
                     VStack() {
                         ShuffleOptionView(
                             groupNum: self.$groupNum,
-                            currentOffset: self.$currentOffset,
-                            openOffset: self.$openOffset,
-                            closeOffset: self.$closeOffset
+                            isShowingPicker: self.$isShowingPicker
                         )
                         Button(action: {
                             let shuffleInteractor = ShuffleInteractor(appState: self.appState)
@@ -68,31 +62,12 @@ struct ShuffleResultView: View {
             .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
             GroupNumPicker(
                 membersCount: self.appState.memberObject.members.count,
-                viewHeight: geometry.size.height,
-                groupNum: self.$groupNum,
-                currentOffset: self.$currentOffset,
-                openOffset: self.$openOffset,
-                closeOffset: self.$currentOffset
+                isShowingModal: self.$isShowingPicker,
+                groupNum: self.$groupNum
             )
-                .frame(height: geometry.size.height * 0.5)
-                .onAppear(perform: {
-                    self.setInitPosition(viewHeight: geometry.size.height)
-                })
-                .offset(y: self.currentOffset)
-                .animation(.default)
+            .animation(.default)
+            .offset(y: self.isShowingPicker ? UIScreen.main.bounds.height/4 : UIScreen.main.bounds.height)
         }
-    }
-    
-    // NumberPickerを画面の下に隠すために初期ポジションを設定する
-    private func setInitPosition(viewHeight: CGFloat) {
-        self.currentOffset = viewHeight
-        self.closeOffset = self.currentOffset
-        self.openOffset = viewHeight - viewHeight*0.5
-    }
-    
-    // NumberPickerの座標を書き換えることで出現させる
-    private func toggleNumberPicker() {
-        self.currentOffset = self.openOffset
     }
 }
 
