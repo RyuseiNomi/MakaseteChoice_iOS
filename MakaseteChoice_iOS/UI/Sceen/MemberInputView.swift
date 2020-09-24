@@ -56,11 +56,15 @@ struct MemberInputView: View {
                     if self.inputedMemberName == "" {
                         return
                     }
+                    self.appState.addMember(member: Member(name: self.inputedMemberName))
                     self.inputedMemberName = ""
                 })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
                 Button(action:{
+                    if self.inputedMemberName == "" {
+                        return
+                    }
                     self.appState.addMember(member: Member(name: self.inputedMemberName))
                     self.inputedMemberName = ""
                 }) {
