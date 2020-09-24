@@ -9,49 +9,76 @@
 import SwiftUI
 import QGrid
 
-struct ResultMemberCell: View {
-    var member: Member
+struct ShuffleResultView: View {
     
+    @State private(set) var groupNum:Int = 1
+    @State private(set) var group:[Member] = []
+    @State private(set) var isCompletShuffle = false
+    @State private(set) var isShowingPicker = false
+    @EnvironmentObject public var appState: AppState
+
     var body: some View {
         ZStack() {
-            HStack() {
-                Image("Member")
-                Text(member.name)
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                    .font(Font.custom("Helvetica-Light", size: 16))
-                Spacer()
-                VStack() {
-                    Text("グループ")
-                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                        .font(Font.custom("Helvetica-Light", size: 12))
-                    Text(String(member.groupId))
-                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                        .font(Font.custom("Helvetica", size: 20))
-                        .bold()
+            VStack() {
+                HStack() {
+                    Text("チョイス結果")
+                        .fontWeight(.black)
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 25))
+                        .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 0))
+                    Spacer()
+                    Text("メンバー数: \(self.group.count)")
+                        .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 15))
+                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 5, trailing: 5))
                 }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:5))
+                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 0))
+                if self.appState.memberObject.members.count == 0 {
+                    NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "「メンバー」メニューから", paragraphThree: "メンバーを追加しましょう")
+                } else if self.isCompletShuffle == false {
+                    NoGroupViewComponent(paragraphOne: "グループがありません", paragraphTwo: "組分け数を設定して", paragraphThree: "グループをチョイスしましょう")
+                } else {
+                    GroupCell(members: self.group)
+                }
+                if self.appState.memberObject.members.count != 0 {
+                    Spacer()
+                    VStack() {
+                        ShuffleOptionView(
+                            groupNum: self.$groupNum,
+                            isShowingPicker: self.$isShowingPicker
+                        )
+                        Button(action: {
+                            let shuffleInteractor = ShuffleInteractor(appState: self.appState)
+                            self.group = shuffleInteractor.doShuffle(groupNumber: self.groupNum)
+                            self.isCompletShuffle = true
+                        }) {
+                            DecisionButton(label: "チョイスする", maxWidth: 200)
+                        }
+                        .padding(EdgeInsets(top: 15, leading: 5, bottom: 30, trailing: 5))
+                    }
+                }
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+            .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
+            GroupNumPicker(
+                membersCount: self.appState.memberObject.members.count,
+                isShowingModal: self.$isShowingPicker,
+                groupNum: self.$groupNum
+            )
+            .animation(.default)
+            .offset(y: self.isShowingPicker ? UIScreen.main.bounds.height/4 : UIScreen.main.bounds.height)
         }
-        .cornerRadius(10)
-        .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
-struct ShuffleResultView: View {
+struct GroupCell: View {
     
-    @State var members:[Member] = []
-    var groupNum:Int = 0
-    @State var sortedMembers:[Member] = []
-    @State private(set) var isCompletShuffle = false
+    public var members:[Member]
     
     var body: some View {
         VStack() {
-            if isCompletShuffle == false {
-                Text("シャッフル中...")
-            }
-            QGrid(self.sortedMembers,
+            //TODO グループごとにセクションを区切る
+            QGrid(self.members,
                   columns: 1,
                   vSpacing: 25,
                   hSpacing: 0,
@@ -61,35 +88,6 @@ struct ShuffleResultView: View {
             ) { member in
                 ResultMemberCell(member: member)
             }
-//            NavigationLink(destination: MemberInputView()) {
-//                RetryButton()
-//            }
         }
-        .onAppear(perform: { self.doShuffle() })
-        .navigationBarTitle("シャッフル結果", displayMode: .inline)
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
-    }
-    
-    private func doShuffle(){
-        var shuffledMember:[Member] = []
-        self.isCompletShuffle = false
-        
-        // 配列のシャッフル
-        self.members.shuffle()
-        
-        // シャッフルしたメンバーにgroupIDを割り当てる
-        var groupId:Int = 1;
-        for member in members {
-            shuffledMember.append(Member(name: member.name, groupId: groupId))
-            if groupId > self.groupNum - 1 {
-                groupId = 1
-                continue
-            }
-            groupId = groupId + 1
-        }
-        
-        // GroupIDでメンバーをSortする
-        self.sortedMembers = shuffledMember.sorted{ $0.groupId < $1.groupId }
-        self.isCompletShuffle = true
     }
 }

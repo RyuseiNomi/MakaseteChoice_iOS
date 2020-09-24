@@ -10,60 +10,25 @@ import SwiftUI
 import QGrid
 import KeyboardObserving
 
-struct Member: Identifiable, Hashable {
-    var id = UUID()
-    var name:String
-    var groupId:Int = 0
-}
-
-struct MemberCell: View {
-    
-    var member: Member
-    @EnvironmentObject public var appState: AppState
-    
-    var body: some View {
-        ZStack() {
-            HStack() {
-                Image("Member")
-                Text(member.name)
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                    .font(Font.custom("Helvetica-Light", size: 16))
-                Spacer()
-                Button(action: {
-                    self.appState.deleteMember(name: self.member.name)
-                }) {
-                    Text("×")
-                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                        .font(Font.custom("Helvetica-Light", size: 20))
-                }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:5))
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
-        }
-        .cornerRadius(10)
-        .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
-    }
-}
-
 struct MemberInputView: View {
-    @State private(set) var name = ""
+    
+    @State private(set) var isShowingModal = false
+    @State public var inputedMemberName:String = ""
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack() {
             HStack() {
-                Text("入力したメンバー")
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                Text(String(self.appState.memberObject.members.count))
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                    .font(Font.custom("Helvetica-Light", size: 30))
-                Text("人")
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                Text("メンバー入力")
+                    .fontWeight(.black)
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 25))
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 0))
             }
-            .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
+            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+            .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 0))
             if self.appState.memberObject.members.isEmpty {
-                Text("メンバーが入力されていません。")
+                NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "下の「追加」ボタンより", paragraphThree: "メンバーを追加しましょう")
             }
             QGrid(self.appState.memberObject.members,
                   columns: 2,
@@ -76,25 +41,45 @@ struct MemberInputView: View {
                 MemberCell(member: member)
             }
             HStack() {
-                TextField("名前を入力", text: $name, onCommit: {
-                    if self.name == "" {
+                Text("入力したメンバー")
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+                Text(String(self.appState.memberObject.members.count))
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
+                    .font(Font.custom("Helvetica-Light", size: 30))
+                Text("人")
+                    .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
+            }
+            .padding(EdgeInsets(top: 2, leading: 0, bottom: 10, trailing:0))
+            .frame(alignment: .leading)
+            HStack() {
+                TextField("名前を入力", text: $inputedMemberName, onCommit: {
+                    if self.inputedMemberName == "" {
                         return
                     }
-                    self.appState.addMember(member: Member(name: self.name, groupId: 0))
-                    self.name = ""
+                    self.appState.addMember(member: Member(name: self.inputedMemberName))
+                    self.inputedMemberName = ""
                 })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
-                NavigationLink(destination: ShuffleOptionView()) {
-                    DecisionButton()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
+                Button(action:{
+                    if self.inputedMemberName == "" {
+                        return
+                    }
+                    self.appState.addMember(member: Member(name: self.inputedMemberName))
+                    self.inputedMemberName = ""
+                }) {
+                    DecisionButton(label: "追加", maxWidth: 100)
                 }
-                .disabled(!self.appState.memberObject.isMemberIsOverTwo)
-                .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
             }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 5))
         }
         .keyboardObserving()
-        .navigationBarTitle("メンバーの入力", displayMode: .inline)
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 77/255, green: 77/255, blue: 77/255)) //gray
+    }
+}
+
+struct MemberInputView_Previews: PreviewProvider {
+    static var previews: some View {
+        MemberInputView()
     }
 }
