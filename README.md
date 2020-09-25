@@ -1,4 +1,4 @@
-# MakaseteChoise_iOS
+# まかせてチョイス
 
 ---
 
