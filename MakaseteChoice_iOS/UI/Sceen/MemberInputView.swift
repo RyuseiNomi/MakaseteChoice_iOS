@@ -23,10 +23,10 @@ struct MemberInputView: View {
                     .fontWeight(.black)
                     .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) //whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 25))
-                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 0))
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 0, trailing: 0))
             }
             .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-            .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 0))
+            .padding(EdgeInsets(top: 20, leading: 10, bottom: 0, trailing: 0))
             if self.appState.memberObject.members.isEmpty {
                 NoMemberViewComponent(paragraphOne: "メンバーがいません", paragraphTwo: "下の「追加」ボタンより", paragraphThree: "メンバーを追加しましょう")
             }
