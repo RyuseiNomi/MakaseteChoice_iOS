@@ -16,7 +16,12 @@ struct MemberCell: View {
     var body: some View {
         ZStack() {
             HStack() {
-                Image("Member")
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: 30, maxHeight: 30)
+                    .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing:10))
                 Text(member.name)
                     .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 16))

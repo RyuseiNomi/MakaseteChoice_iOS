@@ -20,7 +20,7 @@ struct GroupNumPicker: View {
                 Text("組み合わせ数を選択")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 16))
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                 Button(action: {
                     self.isShowingModal.toggle()
                 }) {
@@ -29,13 +29,15 @@ struct GroupNumPicker: View {
                         Text("完了")
                     }
                 }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .frame(maxWidth: 100, maxHeight: 50)
             }
 
             Picker(selection: $groupNum, label: Text("")) {
                 ForEach( 0 ..< self.membersCount+1 ) {
                     if $0 != 0 {
                         Text("\($0)")
+                            .foregroundColor(Color.black) // whitesmoke
                     }
                 }
             }
@@ -46,17 +48,31 @@ struct GroupNumPicker: View {
                 Text("1グループあたり")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 12))
-                Text(String(self.membersCount / self.groupNum))
-                    .foregroundColor(Color.gray) //whitesmoke
-                    .font(Font.custom("Helvetica-Light", size: 20))
+                // 除算では小数点以下は切り捨てのため、割り切れない場合にはRange表示にする
+                if self.membersCount % self.groupNum != 0 {
+                    Text(String(self.membersCount / self.groupNum))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                    Text("~")
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                    Text(String(self.membersCount / self.groupNum + 1))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                } else {
+                    Text(String(self.membersCount / self.groupNum))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                }
                 Text("人")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 12))
             }
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
         }
         .background(Color.white)
         .cornerRadius(30)
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
     }
 }
 

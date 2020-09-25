@@ -26,17 +26,17 @@ struct ShuffleOptionView: View {
                     .font(Font.custom("Helvetica", size: 30))
                     .fontWeight(.black)
                 Spacer()
-                Image(systemName: "chevron.down.square")
+                Image(systemName: "chevron.down.square.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255))
-                    .frame(maxWidth: 20, maxHeight: 20)
+                    .frame(maxWidth: 25, maxHeight: 25)
                     .onTapGesture {
                         self.isShowingPicker.toggle()
                     }
             }
         }
-        .padding(EdgeInsets(top: 0, leading: 80, bottom: 10, trailing: 80))
+        .padding(EdgeInsets(top: 0, leading: 90, bottom: 0, trailing: 90))
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) // gray
     }
     
