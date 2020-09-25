@@ -30,7 +30,7 @@ struct CredentialView: View {
                 .fontWeight(.black)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 0))
             HStack() {
-                Text("Icons in this app by ")
+                Text("AppIcon by ")
                     .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255)) // whitesmoke
                 Button(action : { UIApplication.shared.open(self.icon8Url) }) {
                     Text("Icons8")
