@@ -12,7 +12,8 @@ import KeyboardObserving
 
 struct MemberInputView: View {
     
-    @State private(set) var isShowingModal = false
+    @State private(set) var isShowingModal:Bool = false
+    @State private(set) var isInvalidName:Bool = false
     @State public var inputedMemberName:String = ""
     @EnvironmentObject public var appState: AppState
     
@@ -53,28 +54,48 @@ struct MemberInputView: View {
             .frame(alignment: .leading)
             HStack() {
                 TextField("名前を入力", text: $inputedMemberName, onCommit: {
-                    if self.inputedMemberName == "" {
-                        return
-                    }
-                    self.appState.addMember(member: Member(name: self.inputedMemberName))
-                    self.inputedMemberName = ""
+                    self.validateInputedName(inputedName: self.inputedMemberName)
                 })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
                 Button(action:{
-                    if self.inputedMemberName == "" {
-                        return
-                    }
-                    self.appState.addMember(member: Member(name: self.inputedMemberName))
-                    self.inputedMemberName = ""
+                    self.validateInputedName(inputedName: self.inputedMemberName)
                 }) {
                     DecisionButton(label: "追加", maxWidth: 100)
+                }.alert(isPresented: $isInvalidName) {
+                    Alert(title: Text("メンバー入力エラー"), message: Text("同じ名前のメンバーは入力できません。"))
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 30, trailing: 5))
             }
         }
         .keyboardObserving()
         .background(Color(red: 77/255, green: 77/255, blue: 77/255)) //gray
+    }
+    
+    /// 入力された名前のバリデーションを行う
+    /// [バリデーション内容]
+    /// 1. 入力された名前が空かどうか→空の場合は何もしない
+    /// 2. 既にグループに存在する名前かどうか→重複した名前の場合はアラートを出して弾く
+    private func validateInputedName(inputedName: String) {
+        if self.inputedMemberName == "" {
+            return
+        }
+        if self.isDuplicateMemberName(inputedName: self.inputedMemberName) {
+            self.isInvalidName.toggle()
+            return
+        }
+        self.appState.addMember(member: Member(name: self.inputedMemberName))
+        self.inputedMemberName = ""
+    }
+    
+    /// 入力された名前と同じ名前がグループ内に存在しているかどうかを調べる
+    private func isDuplicateMemberName(inputedName: String) -> Bool {
+        for m in self.appState.memberObject.members {
+            if m.name == inputedName {
+                return true
+            }
+        }
+        return false
     }
 }
 
