@@ -55,6 +55,7 @@ struct GroupNumPicker: View {
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 12))
             }
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
         }
         .background(Color.white)
         .cornerRadius(30)
