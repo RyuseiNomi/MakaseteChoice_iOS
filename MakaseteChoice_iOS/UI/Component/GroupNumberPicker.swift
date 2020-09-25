@@ -48,9 +48,22 @@ struct GroupNumPicker: View {
                 Text("1グループあたり")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 12))
-                Text(String(self.membersCount / self.groupNum))
-                    .foregroundColor(Color.gray) //whitesmoke
-                    .font(Font.custom("Helvetica-Light", size: 20))
+                // 除算では小数点以下は切り捨てのため、割り切れない場合にはRange表示にする
+                if self.membersCount % self.groupNum != 0 {
+                    Text(String(self.membersCount / self.groupNum))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                    Text("~")
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                    Text(String(self.membersCount / self.groupNum + 1))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                } else {
+                    Text(String(self.membersCount / self.groupNum))
+                        .foregroundColor(Color.gray) //whitesmoke
+                        .font(Font.custom("Helvetica-Light", size: 20))
+                }
                 Text("人")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 12))
