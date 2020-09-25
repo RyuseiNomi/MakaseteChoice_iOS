@@ -2,19 +2,31 @@
 
 ---
 
-## About this app
+## このアプリについて
 
-This app can sort memberes whenever and wherever.
+◆ ◆ ◆ このアプリの特徴 ◆ ◆ ◆
 
-Have you even wondered how you can do grouping? Something it is in school, playing boad game with friends and any more situations.
+友達と遊んでいる時、グループワークを始めたい時、ゲームを始める時、授業で演習を始める時など、グループ分けが必要なシチュエーションが多くあります。
 
-This is one of the solution for these ab awkward situation named MakaseteChoice.
+そんな時、ランダムでグループを振り分けてくれるのが「まかせてチョイス」です。
 
+メンバーとグループ数を入力するだけで簡単にグループ分けをすることが出来ます。
 
+## スクリーンショット
 
-## Demo
+![](./assets/demo_1.png)
 
-![](./assets/MakaseteChoice_demo.gif)
+![](./assets/demo_2.png)
+
+## アーキテクチャ
+
+アプリ全体のアーキテクチャは、SwiftUIのアプリを設計するに当たって有力とされている[ELMアーキテクチャ](https://guide.elm-lang.org/architecture/)をベースに、下の図のような設計で実装を行なっています。
+
+![architecture](https://github.com/nalexn/blob_files/blob/master/images/swiftui_arc_001_d.png?raw=true)
+
+画像参照元：https://nalexn.github.io/clean-architecture-swiftui/
+
+参考記事：https://nalexn.github.io/clean-architecture-swiftui/
 
 ## Credentials
 
