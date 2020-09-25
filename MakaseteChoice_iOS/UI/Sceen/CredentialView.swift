@@ -20,7 +20,7 @@ struct CredentialView: View {
                 .font(Font.custom("Helvetica-Light", size: 20))
                 .fontWeight(.black)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 0))
-            Text("2.0.0")
+            Text("2.0.1")
                 .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255))
                 .font(Font.custom("Helvetica", size: 20))
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 0))
