@@ -4,7 +4,7 @@
 
 ## このアプリについて
 
-![AppImage](./assets/makasete_choice_image.png)
+![AppImage](./assets/makasete_choice.png)
 
 ◆ ◆ ◆ このアプリの特徴 ◆ ◆ ◆
 
