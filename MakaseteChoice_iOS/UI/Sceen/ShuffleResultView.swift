@@ -66,7 +66,7 @@ struct ShuffleResultView: View {
                 groupNum: self.$groupNum
             )
             .animation(.default)
-            .offset(y: self.isShowingPicker ? UIScreen.main.bounds.height/4 : UIScreen.main.bounds.height)
+                .offset(y: self.isShowingPicker ? UIScreen.main.bounds.height/6 : UIScreen.main.bounds.height)
         }
     }
 }
