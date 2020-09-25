@@ -26,7 +26,7 @@ struct ShuffleOptionView: View {
                     .font(Font.custom("Helvetica", size: 30))
                     .fontWeight(.black)
                 Spacer()
-                Image(systemName: "chevron.down.square")
+                Image(systemName: "chevron.down.square.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Color(red: 245/255, green: 245/255, blue: 245/255))
