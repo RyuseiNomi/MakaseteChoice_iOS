@@ -20,7 +20,7 @@ struct GroupNumPicker: View {
                 Text("組み合わせ数を選択")
                     .foregroundColor(Color.gray) // whitesmoke
                     .font(Font.custom("Helvetica-Light", size: 16))
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                 Button(action: {
                     self.isShowingModal.toggle()
                 }) {
@@ -29,13 +29,15 @@ struct GroupNumPicker: View {
                         Text("完了")
                     }
                 }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .frame(maxWidth: 100, maxHeight: 50)
             }
 
             Picker(selection: $groupNum, label: Text("")) {
                 ForEach( 0 ..< self.membersCount+1 ) {
                     if $0 != 0 {
                         Text("\($0)")
+                            .foregroundColor(Color.black) // whitesmoke
                     }
                 }
             }
@@ -56,7 +58,7 @@ struct GroupNumPicker: View {
         }
         .background(Color.white)
         .cornerRadius(30)
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
     }
 }
 
